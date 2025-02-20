@@ -1,0 +1,69 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: insuretech-postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=insuretech
+      - POSTGRES_USER=insuretech_user
+      - POSTGRES_PASSWORD=securepassword
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U insuretech_user -d insuretech"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend_network
+
+  backend:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: insuretech-backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - DJANGO_SETTINGS_MODULE=insuretech.settings
+      - DATABASE_URL=postgresql://insuretech_user:securepassword@postgres/insuretech
+      - POSTGRES_HOST=postgres
+      - DJANGO_SECRET_KEY=your-secret-key-here
+      - DJANGO_DEBUG=False
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/app
+      - static_volume:/app/staticfiles
+    restart: unless-stopped
+    networks:
+      - backend_network
+      - frontend_network
+
+  frontend:
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: insuretech-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - frontend_network
+
+volumes:
+  postgres_data:
+  static_volume:
+
+networks:
+  backend_network:
+    driver: bridge
+  frontend_network:
+    driver: bridge
