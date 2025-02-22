@@ -1,31 +1,94 @@
-# InsureTech Django Backend
+# InsureTech Backend: Authentication & Authorization
 
-## Project Setup
+## Authentication System
 
-### Prerequisites
-- Python 3.11
-- Docker
-- Docker Compose
+### User Roles
+- **Admin**: Full system access, can create users
+- **Finance**: Limited access to financial data
 
-### Environment Setup
-1. Copy `.env.example` to `.env`
-2. Fill in the necessary environment variables
+### Authentication Endpoints
 
-### Development
-- Install dependencies: `pip install -r requirements.txt`
-- Run migrations: `python manage.py migrate`
-- Start development server: `python manage.py runserver`
+#### 1. Obtain Token
+- **URL**: `/api/auth/token/`
+- **Method**: POST
+- **Body**:
+  ```json
+  {
+    "username": "your_username",
+    "password": "your_password"
+  }
+  ```
+- **Response**: 
+  ```json
+  {
+    "access": "jwt_access_token",
+    "refresh": "jwt_refresh_token"
+  }
+  ```
 
-### Docker Deployment
-- Build and run: `docker-compose up --build`
+#### 2. Refresh Token
+- **URL**: `/api/auth/token/refresh/`
+- **Method**: POST
+- **Body**:
+  ```json
+  {
+    "refresh": "jwt_refresh_token"
+  }
+  ```
 
-### Key Dependencies
-- Django 4.2.9
-- Django REST Framework
-- PostgreSQL
-- Gunicorn
+#### 3. User Registration (Admin Only)
+- **URL**: `/api/auth/register/`
+- **Method**: POST
+- **Headers**: `Authorization: Bearer <admin_access_token>`
+- **Body**:
+  ```json
+  {
+    "username": "new_user",
+    "password": "secure_password",
+    "confirm_password": "secure_password",
+    "role": "Finance",
+    "organization": 1
+  }
+  ```
 
-### Project Structure
-- `insuretech/`: Main Django project directory
-- `requirements.txt`: Python dependencies
-- `Dockerfile`: Container configuration
+#### 4. Logout
+- **URL**: `/api/auth/logout/`
+- **Method**: POST
+- **Headers**: `Authorization: Bearer <access_token>`
+- **Body**:
+  ```json
+  {
+    "refresh_token": "jwt_refresh_token"
+  }
+  ```
+
+### Authorization
+- Tokens are valid for 60 minutes
+- Refresh tokens are valid for 1 day
+- Role-based access control implemented
+
+### Security Features
+- JWT Authentication
+- Password hashing with bcrypt
+- Role-based permissions
+- Secure token management
+
+## Development Setup
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
+
+3. Create superuser:
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+## Testing Authentication
+- Use Postman or curl to test endpoints
+- Always include `Authorization: Bearer <token>` for protected routes

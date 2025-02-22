@@ -20,6 +20,14 @@ services:
     networks:
       - backend_network
 
+  redis:
+    image: redis:alpine
+    container_name: insuretech-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - backend_network
+
   backend:
     build: 
       context: ./server
@@ -28,10 +36,13 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      redis:
+        condition: service_started
     environment:
       - DJANGO_SETTINGS_MODULE=insuretech.settings
       - DATABASE_URL=postgresql://insuretech_user:securepassword@postgres/insuretech
       - POSTGRES_HOST=postgres
+      - REDIS_HOST=redis
       - DJANGO_SECRET_KEY=your-secret-key-here
       - DJANGO_DEBUG=False
       - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,backend
