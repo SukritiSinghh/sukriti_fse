@@ -10,6 +10,8 @@ from .serializers import FinancialDocumentSerializer, BalanceSheetDataSerializer
 import logging
 import json
 from .ai_processor import process_financial_document
+from rest_framework.decorators import api_view, permission_classes
+from .document_processor import process_pending_documents
 
 logger = logging.getLogger(__name__)
 
@@ -21,87 +23,43 @@ class FileUploadView(APIView):
 
     def post(self, request, *args, **kwargs):
         try:
-            # Check if this is a save operation
-            if request.path.endswith('/save/'):
-                # Create the document with the specific data
-                document_data = {
-                    "organization_id": 15,
-                    "file": "/media/uploads/dummy_balance_sheet.xlsx",
-                    "file_name": "dummy_balance_sheet.xlsx",
-                    "uploaded_at": "2025-02-24T07:29:11.244556Z",
-                    "reportType": "INCOME",
-                    "status": "pending",
-                    "uploaded_by": "admin",
-                    "year": 2021
-                }
-                
-                # Create and save the document
-                document = FinancialDocument.objects.create(**document_data)
-                print("Document created with ID:", document.id)
-                
-                # Return the response
-                return Response({
-                    "message": "Document saved successfully",
-                    "document_id": document.id
-                }, status=status.HTTP_201_CREATED)
+            # Get the user's organization
+            user = request.user
+            logger.info(f"User: {user}, Organization: {getattr(user, 'organization', None)}")
             
-            # If not a save operation, handle regular file upload
-            # Log request data
-            logger.info(f"Request data: {request.data}")
-            logger.info(f"Files: {request.FILES}")
-            
-            # Get organization name from request data
-            org_name = request.data.get('organization')
-            logger.info(f"Organization name from request: {org_name}")
-            
-            if not org_name:
-                return Response(
-                    {'error': 'Organization name is required'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
+            organization = user.organization
+            if not organization:
+                return Response({"error": "User is not associated with any organization"}, 
+                             status=status.HTTP_400_BAD_REQUEST)
 
-            # Get the organization by name
-            try:
-                organization = Organization.objects.get(name=org_name)
-                logger.info(f"Found organization: {organization}")
-            except Organization.DoesNotExist:
-                logger.error(f"Organization not found: {org_name}")
-                return Response(
-                    {'error': f'Organization with name {org_name} does not exist'},
-                    status=status.HTTP_404_NOT_FOUND
-                )
+            # Handle file upload
+            file_obj = request.FILES.get('file')
+            if not file_obj:
+                return Response({"error": "No file provided"}, 
+                             status=status.HTTP_400_BAD_REQUEST)
 
-            # Create a mutable copy of the data
-            data = request.data.copy()
-            data['organization'] = organization.id
-            
-            # Get the original filename from the uploaded file
-            if 'file' in request.FILES:
-                data['file_name'] = request.FILES['file'].name
-            
-            logger.info(f"Prepared data for serializer: {data}")
-
-            # Create serializer with context
-            file_serializer = FinancialDocumentSerializer(
-                data=data,
-                context={'user': request.user}
+            # Create document
+            document = FinancialDocument.objects.create(
+                organization=organization,
+                uploaded_by=request.user.username,
+                file=file_obj,
+                file_name=file_obj.name,
+                title=request.data.get('title', 'Untitled Document'),
+                report_type=request.data.get('report_type', 'OTHER'),
+                year=request.data.get('year', 2024),
+                status=FinancialDocument.Status.PENDING
             )
-            
-            if file_serializer.is_valid():
-                logger.info("Serializer is valid")
-                file_serializer.save()
-                print("Successfully saved:", file_serializer.instance)
-                return Response(file_serializer.data, status=status.HTTP_201_CREATED)
-            else:
-                logger.error(f"Serializer errors: {file_serializer.errors}")
-                return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
+
+            return Response({
+                "message": "File uploaded successfully",
+                "document_id": document.id,
+                "file_name": document.file_name,
+                "status": document.status
+            }, status=status.HTTP_201_CREATED)
+
         except Exception as e:
-            logger.exception("Error in file upload")
-            return Response(
-                {'error': str(e)},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
+            logger.error(f"Error in file upload: {str(e)}")
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def get(self, request, *args, **kwargs):
         try:
@@ -203,3 +161,13 @@ class ProcessDocumentView(APIView):
                 {'error': 'Document not found'},
                 status=status.HTTP_404_NOT_FOUND
             )
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def process_documents(request):
+    try:
+        result = process_pending_documents()
+        return Response(result, status=status.HTTP_200_OK)
+    except Exception as e:
+        logger.error(f"Error processing documents: {str(e)}")
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

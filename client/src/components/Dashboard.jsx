@@ -9,7 +9,9 @@ import {
 import { useLocation } from 'react-router-dom';
 import { message } from 'antd';
 import { jwtDecode } from "jwt-decode"; // Named import
+import axios from 'axios';
 
+const API_BASE_URL = 'http://localhost:8000';
 
 const Dashboard = () => {
   const location = useLocation();
@@ -46,9 +48,43 @@ const Dashboard = () => {
   const [title, setTitle] = useState('');
   const [reportType, setReportType] = useState('OTHER');
   const [year, setYear] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [processedData, setProcessedData] = useState([]);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
+  };
+
+  const processDocuments = async () => {
+    try {
+      setIsProcessing(true);
+      const token = localStorage.getItem('accessToken');
+      
+      const response = await axios.post(
+        `${API_BASE_URL}/api/v1/documents/process/`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("Processing result:", response.data);
+      
+      // Display processed data
+      if (response.data.processed_documents) {
+        const processedDocs = response.data.processed_documents;
+        setProcessedData(processedDocs);
+        message.success('Documents processed successfully');
+      } else if (response.data.error) {
+        message.error(`Processing failed: ${response.data.error}`);
+      }
+    } catch (error) {
+      console.error("Error processing documents:", error);
+      message.error('Failed to process documents');
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   const handleFileUpload = async (file, year) => {
@@ -79,13 +115,15 @@ const Dashboard = () => {
         console.log(pair[0] + ':', pair[1]);
       }
 
-      const response = await fetch('http://localhost:8000/api/v1/documents/upload/', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-        body: formData
-      });
+      const response = await axios.post(
+        `${API_BASE_URL}/api/v1/documents/upload/`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       console.log('Response status:', response.status);
       const responseText = await response.text();
@@ -105,6 +143,9 @@ const Dashboard = () => {
       const result = JSON.parse(responseText);
       console.log('File uploaded successfully:', result);
       message.success('File uploaded successfully');
+
+      // After successful upload, trigger document processing
+      await processDocuments();
 
       // Clear the file input
       setFile(null);
@@ -274,58 +315,124 @@ const Dashboard = () => {
         </div>
 
         {/* File Upload Section */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-          <h2 className="text-xl font-semibold mb-4">Upload Financial Reports</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="flex items-center space-x-4">
-              <input 
-                type="file" 
-                onChange={handleFileChange} 
-                className="border p-2 rounded flex-grow" 
-                placeholder="Select file" 
-                required
-              />
-              <input 
-                type="text" 
-                value={title} 
-                onChange={(e) => setTitle(e.target.value)} 
-                placeholder="Title" 
-                className="border p-2 rounded flex-grow" 
-                required
-              />
-              <select 
-                value={reportType} 
-                onChange={(e) => setReportType(e.target.value)} 
-                className="border p-2 rounded flex-grow"
-              >
-                <option value="OTHER">Other</option>
-                <option value="INCOME">BalanceSheet</option>
-                <option value="EXPENSE">Charge Sheet</option>
-                {/* <option value="BUDGET">Budget Plan</option> */}
-                {/* <option value="TAX">Tax Document</option> */}
-              </select>
-              <input 
-                type="number" 
-                value={year} 
-                onChange={(e) => setYear(e.target.value)} 
-                placeholder="Year" 
-                className="border p-2 rounded flex-grow" 
-                required
-              />
-              <button 
-                type="submit" 
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              >
-                Upload
-              </button> 
-            </div>
-          </form>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 className="text-2xl font-semibold mb-4">Upload Financial Document</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Document Type</label>
+                <select
+                  value={reportType}
+                  onChange={(e) => setReportType(e.target.value)}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                >
+                  <option value="OTHER">Select Type</option>
+                  <option value="BALANCE_SHEET">Balance Sheet</option>
+                  <option value="CHARGESHEET">Charge Sheet</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Year</label>
+                <input
+                  type="number"
+                  value={year}
+                  onChange={(e) => setYear(e.target.value)}
+                  placeholder="Enter year"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">File</label>
+                <input
+                  type="file"
+                  onChange={handleFileChange}
+                  className="mt-1 block w-full"
+                  accept=".xlsx,.xls,.csv"
+                />
+              </div>
+              <div className="flex justify-between items-center">
+                <button
+                  type="submit"
+                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  disabled={!file || isProcessing}
+                >
+                  {isProcessing ? 'Processing...' : 'Upload'}
+                </button>
+                
+                <button
+                  type="button"
+                  onClick={processDocuments}
+                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  disabled={isProcessing}
+                >
+                  {isProcessing ? 'Processing Documents...' : 'Process Pending Documents'}
+                </button>
+              </div>
+            </form>
+          </div>
 
           <YearlyReportsSection />
 
+          {/* Display Processed Data */}
+          {processedData.length > 0 && (
+            <div className="bg-white p-6 rounded-lg shadow-md mt-6">
+              <h2 className="text-2xl font-semibold mb-4">Processed Documents</h2>
+              {processedData.map((doc, index) => (
+                <div key={doc.document_id} className="mb-4 p-4 border rounded">
+                  <h3 className="text-xl font-medium">{doc.title}</h3>
+                  <p className="text-gray-600">Type: {doc.report_type}</p>
+                  
+                  {doc.processed_data && (
+                    <div className="mt-2">
+                      {doc.processed_data.type === 'balance_sheet' && (
+                        <div className="grid grid-cols-2 gap-4">
+                          {Object.entries(doc.processed_data.data).map(([key, value]) => (
+                            <div key={key} className="p-2 bg-gray-50 rounded">
+                              <span className="font-medium">{key.replace(/_/g, ' ').toUpperCase()}: </span>
+                              {key === 'processed_at' ? new Date(value).toLocaleString() : value}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      
+                      {doc.processed_data.type === 'chargesheet' && (
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full mt-2">
+                            <thead>
+                              <tr className="bg-gray-50">
+                                <th className="px-4 py-2">Date</th>
+                                <th className="px-4 py-2">Charges</th>
+                                <th className="px-4 py-2">Amount</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {doc.processed_data.data.map((charge, idx) => (
+                                <tr key={idx} className="border-t">
+                                  <td className="px-4 py-2">{new Date(charge.date).toLocaleDateString()}</td>
+                                  <td className="px-4 py-2">{charge.charges}</td>
+                                  <td className="px-4 py-2">{charge.amount}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
+                  {doc.error && (
+                    <div className="text-red-600 mt-2">
+                      Error: {doc.error}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* Charts & Insights */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">Financial Trends</h2>
+            <h2 className="text-2xl font-semibold mb-4">Financial Trends</h2>
             <div className="grid grid-cols-2 gap-4">
               <div className="border p-4 rounded">
                 <h3 className="text-lg mb-2">Revenue & Expense Comparison</h3>

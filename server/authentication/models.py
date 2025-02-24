@@ -45,34 +45,23 @@ class Role(models.Model):
 
 
 class User(AbstractUser):
-    organization = models.ForeignKey(
-        Organization,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='users'
-    )
-    role = models.ForeignKey(
-        Role,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='users'
-    )
+    organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True, blank=True, related_name='users')
+    role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, blank=True, related_name='users')
     
     groups = models.ManyToManyField(
         'auth.Group',
-        verbose_name='groups',
+        related_name='custom_user_set',
         blank=True,
         help_text='The groups this user belongs to.',
-        related_name='custom_users'
+        verbose_name='groups',
     )
+    
     user_permissions = models.ManyToManyField(
         'auth.Permission',
-        verbose_name='user permissions',
+        related_name='custom_user_set',
         blank=True,
         help_text='Specific permissions for this user.',
-        related_name='custom_users'
+        verbose_name='user permissions',
     )
 
     def save(self, *args, **kwargs):
