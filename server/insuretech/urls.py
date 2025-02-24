@@ -20,6 +20,9 @@ urlpatterns = [
         
         # Finance routes
         path('finance/', include('finance.urls')),
+        
+        # Document upload routes
+        path('documents/', include('organization.urls')),
     ])),
 ]
 

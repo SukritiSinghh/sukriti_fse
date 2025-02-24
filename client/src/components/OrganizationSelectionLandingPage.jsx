@@ -77,7 +77,7 @@ const OrganizationSelectionLandingPage = () => {
             const result = await response.json();
 
             setSuccess(isJoining ? 'Organization joined successfully! Redirecting...' : 'Organization created successfully! Redirecting...');
-            setTimeout(() => navigate('/dashboard'), 2000);
+            setTimeout(() => navigate('/dashboard', { state: { name: data.name, code: data.code } }), 2000);
 
         } catch (err) {
             setError(err.message);

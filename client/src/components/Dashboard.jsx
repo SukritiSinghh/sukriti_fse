@@ -6,8 +6,15 @@ import {
   UserOutlined, 
   LogoutOutlined 
 } from '@ant-design/icons';
+import { useLocation } from 'react-router-dom';
+import { message } from 'antd';
+import { jwtDecode } from "jwt-decode"; // Named import
+
 
 const Dashboard = () => {
+  const location = useLocation();
+  const { name, code } = location.state || {}; 
+  console.log(name, code);
   const financialMetrics = [
     {
       title: 'Total Revenue',
@@ -37,81 +44,80 @@ const Dashboard = () => {
 
   const [file, setFile] = useState(null);
   const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
   const [reportType, setReportType] = useState('OTHER');
+  const [year, setYear] = useState('');
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('title', title);
-    formData.append('description', description);
-    formData.append('report_type', reportType);
-    formData.append('year', new Date().getFullYear());
-
+  const handleFileUpload = async (file, year) => {
     try {
-      // Debug token handling
-      console.log('==== TOKEN DEBUG ====');
-      const token = localStorage.getItem('accessToken');
-      const user = JSON.parse(localStorage.getItem('user') || '{}');
-      
-      console.log('Raw token from localStorage:', token);
-      console.log('User info:', user);
-      console.log('Token length:', token ? token.length : 0);
-      
-      // Check if token exists and is valid
-      if (!token || token === 'null' || token === 'undefined') {
-        throw new Error('No valid authentication token found');
+      if (!name) {
+        message.error('Organization name is required');
+        return;
       }
 
-      // Always add Bearer prefix
-      const finalToken = `Bearer ${token}`;
-      console.log('Final token being sent:', finalToken);
-      console.log('===================');
-      
-      // Add user info to form data
-      formData.append('user_id', user.id);
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('organization', name);
+      formData.append('year', year);
+      formData.append('reportType', reportType);
 
-      // Log the complete request details
-      console.log('Request details:', {
-        url: 'http://localhost:8000/api/finance/reports/',
-        method: 'POST',
-        headers: {
-          'Authorization': finalToken
-        }
-      });
+      // Get the token from local storage
+      const token = localStorage.getItem('accessToken');
+      if (token) {
+        // Decode the token to get user information
+        const decodedToken = jwtDecode(token);
+        const username = decodedToken.username; // Assuming the username is stored in the token
+        formData.append('uploaded_by', username); // Append the username
+      }
 
-      console.log('FormData contents:');
+      // Log the form data
+      console.log('Form data contents:');
       for (let pair of formData.entries()) {
         console.log(pair[0] + ':', pair[1]);
       }
 
-      const response = await fetch('http://localhost:8000/api/finance/reports/', {
+      const response = await fetch('http://localhost:8000/api/v1/documents/upload/', {
         method: 'POST',
         headers: {
-          'Authorization': finalToken,
+          'Authorization': `Bearer ${token}`,
         },
-        body: formData,
+        body: formData
       });
 
+      console.log('Response status:', response.status);
+      const responseText = await response.text();
+      console.log('Response text:', responseText);
+
       if (!response.ok) {
-        const errorData = await response.json().catch(() => null);
-        console.error('Server response:', {
-          status: response.status,
-          statusText: response.statusText,
-          errorData
-        });
-        throw new Error(`File upload failed: ${errorData?.detail || response.statusText}`);
+        let errorMessage;
+        try {
+          const errorData = JSON.parse(responseText);
+          errorMessage = errorData.error || errorData.message || 'Failed to upload file';
+        } catch (e) {
+          errorMessage = 'Failed to upload file: ' + responseText;
+        }
+        throw new Error(errorMessage);
       }
 
-      const data = await response.json();
-      console.log('File uploaded successfully:', data);
+      const result = JSON.parse(responseText);
+      console.log('File uploaded successfully:', result);
+      message.success('File uploaded successfully');
+
+      // Clear the file input
+      setFile(null);
     } catch (error) {
       console.error('Error uploading file:', error);
+      message.error(error.message || 'Failed to upload file');
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (file) {
+      await handleFileUpload(file, year);
     }
   };
 
@@ -287,30 +293,31 @@ const Dashboard = () => {
                 className="border p-2 rounded flex-grow" 
                 required
               />
-              <textarea 
-                value={description} 
-                onChange={(e) => setDescription(e.target.value)} 
-                placeholder="Description" 
-                className="border p-2 rounded flex-grow" 
-                required
-              />
               <select 
                 value={reportType} 
                 onChange={(e) => setReportType(e.target.value)} 
                 className="border p-2 rounded flex-grow"
               >
                 <option value="OTHER">Other</option>
-                <option value="INCOME">Income Report</option>
-                <option value="EXPENSE">Expense Report</option>
-                <option value="BUDGET">Budget Plan</option>
-                <option value="TAX">Tax Document</option>
+                <option value="INCOME">BalanceSheet</option>
+                <option value="EXPENSE">Charge Sheet</option>
+                {/* <option value="BUDGET">Budget Plan</option> */}
+                {/* <option value="TAX">Tax Document</option> */}
               </select>
+              <input 
+                type="number" 
+                value={year} 
+                onChange={(e) => setYear(e.target.value)} 
+                placeholder="Year" 
+                className="border p-2 rounded flex-grow" 
+                required
+              />
               <button 
                 type="submit" 
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
               >
                 Upload
-              </button>
+              </button> 
             </div>
           </form>
 

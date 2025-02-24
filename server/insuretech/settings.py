@@ -128,6 +128,7 @@ INSTALLED_APPS = [
     'database',
     'authentication',
     'org',
+    'organization',
 ]
 
 MIDDLEWARE = [
@@ -209,14 +210,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Ensure static files are served in development
-if DEBUG:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+# Media files (Uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Create media directory if it doesn't exist
+if not os.path.exists(MEDIA_ROOT):
+    os.makedirs(MEDIA_ROOT)
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
@@ -248,13 +250,12 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
+# Gemini AI Configuration
+GENAI_API_KEY = "AIzaSyA35L2zlYRGlfU3ucuON7F-ZQ47sYMGM94"  # Replace with your actual API key
+
 # Redis configuration for JWT token blacklisting
 REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
 REDIS_PORT = os.environ.get('REDIS_PORT', '6379')
-
-# Media files (Uploads)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Caches configuration for token blacklisting
 CACHES = {

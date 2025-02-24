@@ -1,14 +1,19 @@
-// This file has been renamed to LoginPage.jsx
+// LoginPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = ({ setIsAuthenticated }) => {  // Add setIsAuthenticated prop
+const LoginPage = ({ setIsAuthenticated }) => {
     const [username, setusername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
+
+        // Clear previous tokens before login
+        localStorage.removeItem("accessToken"); // Remove access token
+        localStorage.removeItem("refreshToken"); // Remove refresh token (if stored)
+
         console.log('Login attempt with username:', username);
         try {
             const response = await fetch('http://127.0.0.1:8000/api/v1/auth/token/', {
@@ -20,7 +25,7 @@ const LoginPage = ({ setIsAuthenticated }) => {  // Add setIsAuthenticated prop
                     username: username,
                     password: password,
                 }),
-                credentials: 'include'  // Important for handling cookies
+                credentials: 'include'
             });
 
             if (!response.ok) {
@@ -29,9 +34,6 @@ const LoginPage = ({ setIsAuthenticated }) => {  // Add setIsAuthenticated prop
             }
 
             const data = await response.json();
-            console.log('Login successful:', data);
-
-            // Store the access token in localStorage
             localStorage.setItem('accessToken', data.access);
 
             // Fetch user data after successful login
@@ -44,9 +46,15 @@ const LoginPage = ({ setIsAuthenticated }) => {  // Add setIsAuthenticated prop
 
             if (userResponse.ok) {
                 const userData = await userResponse.json();
-                console.log('User data:', userData);
                 setIsAuthenticated(true);
-                navigate('/organization-selection');
+
+                // Check if user has an organization
+                if (userData.organization) {
+                    // Redirect to the dashboard
+                    navigate('/dashboard'); // Adjust the path as needed
+                } else {
+                    navigate('/organization-selection');
+                }
             } else {
                 throw new Error('Failed to fetch user data');
             }
