@@ -1,0 +1,36 @@
+INFO 2025-02-24 12:20:37,166 autoreload 21214 131664086061056 Watching for file changes with StatReloader
+INFO 2025-02-24 12:20:57,459 views 21214 131663264745024 Processing upload request for user: admin
+INFO 2025-02-24 12:20:57,460 views 21214 131663264745024 Request data: <QueryDict: {'organization': ['hiefle'], 'year': ['2021'], 'reportType': ['BALANCE_SHEET'], 'uploaded_by': ['admin'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 12:20:57,460 views 21214 131663264745024 Files: <MultiValueDict: {'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 12:20:57,460 views 21214 131663264745024 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 35, in post
+    if user.organization:
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 12:20:57,460 log 21214 131663264745024 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 12:20:57,461 basehttp 21214 131663264745024 "POST /api/v1/documents/upload/ HTTP/1.1" 500 145
+INFO 2025-02-24 12:21:02,740 views 21214 131663264745024 Processing upload request for user: admin
+INFO 2025-02-24 12:21:02,741 views 21214 131663264745024 Request data: <QueryDict: {'organization': ['hiefle'], 'year': ['2021'], 'reportType': ['BALANCE_SHEET'], 'uploaded_by': ['admin'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 12:21:02,741 views 21214 131663264745024 Files: <MultiValueDict: {'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 12:21:02,741 views 21214 131663264745024 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 35, in post
+    if user.organization:
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 12:21:02,742 log 21214 131663264745024 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 12:21:02,743 basehttp 21214 131663264745024 "POST /api/v1/documents/upload/ HTTP/1.1" 500 145
+INFO 2025-02-24 12:22:21,841 autoreload 21214 131664086061056 /home/sukriti/insuretech/server/insuretech/settings.py changed, reloading.
+INFO 2025-02-24 12:22:22,221 autoreload 21357 125567820369920 Watching for file changes with StatReloader
+INFO 2025-02-24 12:29:26,390 autoreload 21509 127879482302464 Watching for file changes with StatReloader
+INFO 2025-02-24 12:29:39,302 basehttp 21509 127878660359744 "GET /admin/authentication/user/ HTTP/1.1" 302 0
+INFO 2025-02-24 12:29:39,363 basehttp 21509 127878660359744 "GET /admin/login/?next=/admin/authentication/user/ HTTP/1.1" 200 4200
+INFO 2025-02-24 12:29:39,434 basehttp 21509 127878660359744 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-02-24 12:29:39,440 basehttp 21509 127878649873984 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-02-24 12:29:39,440 basehttp 21509 127878639388224 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-02-24 12:29:39,441 basehttp 21509 127878545016384 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-02-24 12:29:39,442 basehttp 21509 127878555502144 "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-02-24 12:29:39,443 basehttp 21509 127878534530624 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-02-24 12:29:39,459 basehttp 21509 127878534530624 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-02-24 12:29:42,927 basehttp 21509 127878534530624 "POST /admin/login/?next=/admin/authentication/user/ HTTP/1.1" 200 4361
+INFO 2025-02-24 12:29:45,696 basehttp 21509 127878534530624 "POST /admin/login/?next=/admin/authentication/user/ HTTP/1.1" 200 4361
+INFO 2025-02-24 12:30:04,776 autoreload 21509 127879482302464 /home/sukriti/insuretech/server/organization/views.py changed, reloading.

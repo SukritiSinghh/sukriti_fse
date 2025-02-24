@@ -1,0 +1,1038 @@
+INFO 2025-02-24 19:54:09,187 autoreload 30307 128596426858496 Watching for file changes with StatReloader
+INFO 2025-02-24 19:54:27,596 autoreload 30307 128596426858496 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 19:54:28,104 autoreload 30399 138963609858048 Watching for file changes with StatReloader
+INFO 2025-02-24 19:57:17,765 autoreload 30399 138963609858048 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 19:57:18,188 autoreload 30860 139742966157312 Watching for file changes with StatReloader
+WARNING 2025-02-24 20:31:21,924 log 30860 139741515220544 Unauthorized: /api/v1/api/financial-data/2022/
+WARNING 2025-02-24 20:31:21,924 basehttp 30860 139741515220544 "GET /api/v1/api/financial-data/2022/ HTTP/1.1" 401 183
+INFO 2025-02-24 20:32:10,683 autoreload 30860 139742966157312 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 20:32:11,306 autoreload 31860 126525757165568 Watching for file changes with StatReloader
+INFO 2025-02-24 20:48:09,085 autoreload 31860 126525757165568 /home/sukriti/insuretech/server/insuretech/settings.py changed, reloading.
+INFO 2025-02-24 20:48:09,656 autoreload 32381 130003096879104 Watching for file changes with StatReloader
+INFO 2025-02-24 20:48:46,923 autoreload 32381 130003096879104 /home/sukriti/insuretech/server/insuretech/settings.py changed, reloading.
+INFO 2025-02-24 20:48:47,499 autoreload 32511 126545784074240 Watching for file changes with StatReloader
+INFO 2025-02-24 20:50:05,866 basehttp 32511 126544332719680 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 22362
+INFO 2025-02-24 20:50:05,909 basehttp 32511 126544322233920 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,911 basehttp 32511 126544229959232 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,913 basehttp 32511 126544322233920 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,914 basehttp 32511 126544311748160 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,914 basehttp 32511 126544208987712 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,914 basehttp 32511 126544219473472 "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,917 basehttp 32511 126544229959232 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,921 basehttp 32511 126544208987712 "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,922 basehttp 32511 126544311748160 "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,924 basehttp 32511 126544332719680 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 20:50:05,925 basehttp 32511 126544219473472 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,957 basehttp 32511 126544322233920 "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,961 basehttp 32511 126544229959232 "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,975 basehttp 32511 126544311748160 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,977 basehttp 32511 126544332719680 "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:05,977 basehttp 32511 126544208987712 "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:06,031 basehttp 32511 126544332719680 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:06,047 basehttp 32511 126544208987712 "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:06,050 basehttp 32511 126544311748160 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:06,051 basehttp 32511 126544229959232 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:06,051 basehttp 32511 126544322233920 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+INFO 2025-02-24 20:50:06,051 basehttp 32511 126544219473472 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-02-24 20:55:56,162 basehttp 32511 126544322233920 "GET /admin/organization/chargesheetdata/ HTTP/1.1" 200 23407
+INFO 2025-02-24 20:55:56,213 basehttp 32511 126544322233920 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:12:13,937 autoreload 32511 126545784074240 /home/sukriti/insuretech/server/organization/models.py changed, reloading.
+INFO 2025-02-24 21:12:14,575 autoreload 33270 131576054595584 Watching for file changes with StatReloader
+INFO 2025-02-24 21:13:21,721 autoreload 33270 131576054595584 /home/sukriti/insuretech/server/organization/models.py changed, reloading.
+INFO 2025-02-24 21:13:22,410 autoreload 33438 134675628838912 Watching for file changes with StatReloader
+INFO 2025-02-24 21:14:12,172 autoreload 33438 134675628838912 /home/sukriti/insuretech/server/organization/models.py changed, reloading.
+INFO 2025-02-24 21:14:12,896 autoreload 33612 132114375864320 Watching for file changes with StatReloader
+INFO 2025-02-24 21:15:35,232 autoreload 33612 132114375864320 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:15:35,741 autoreload 33919 123372084793344 Watching for file changes with StatReloader
+INFO 2025-02-24 21:15:57,728 autoreload 33919 123372084793344 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:15:58,424 autoreload 34010 130172600926208 Watching for file changes with StatReloader
+INFO 2025-02-24 21:16:18,532 autoreload 34010 130172600926208 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:16:19,166 autoreload 34100 131685577277440 Watching for file changes with StatReloader
+INFO 2025-02-24 21:16:49,134 basehttp 34100 131684125115968 "GET /admin/organization/chargesheetdata/ HTTP/1.1" 200 23439
+INFO 2025-02-24 21:16:49,163 basehttp 34100 131684125115968 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:16:52,497 basehttp 34100 131684125115968 "GET /admin/organization/chargesheetdata/42/change/ HTTP/1.1" 200 21495
+INFO 2025-02-24 21:16:52,519 basehttp 34100 131684125115968 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2025-02-24 21:16:52,526 basehttp 34100 131684020258368 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+INFO 2025-02-24 21:16:52,526 basehttp 34100 131684009772608 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2025-02-24 21:16:52,526 basehttp 34100 131684030744128 "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+INFO 2025-02-24 21:16:52,534 basehttp 34100 131684114630208 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:16:52,544 basehttp 34100 131684114630208 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:16:52,567 basehttp 34100 131684020258368 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2025-02-24 21:16:52,567 basehttp 34100 131684125115968 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2025-02-24 21:16:52,724 basehttp 34100 131684125115968 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:16:58,199 basehttp 34100 131684125115968 "POST /admin/organization/chargesheetdata/42/change/ HTTP/1.1" 302 0
+INFO 2025-02-24 21:16:58,270 basehttp 34100 131684125115968 "GET /admin/organization/chargesheetdata/ HTTP/1.1" 200 23714
+INFO 2025-02-24 21:16:58,348 basehttp 34100 131684125115968 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:16:58,412 basehttp 34100 131684125115968 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:17:01,588 basehttp 34100 131684125115968 "GET /admin/organization/chargesheetdata/35/change/ HTTP/1.1" 200 21493
+INFO 2025-02-24 21:17:01,625 basehttp 34100 131684125115968 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:17:03,356 basehttp 34100 131684125115968 "POST /admin/organization/chargesheetdata/35/change/ HTTP/1.1" 302 0
+INFO 2025-02-24 21:17:03,425 basehttp 34100 131684125115968 "GET /admin/organization/chargesheetdata/ HTTP/1.1" 200 23714
+INFO 2025-02-24 21:17:03,505 basehttp 34100 131684125115968 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:18:01,741 basehttp 34100 131683999286848 "OPTIONS /api/financial-data/2025/?organization=3 HTTP/1.1" 200 0
+WARNING 2025-02-24 21:18:01,750 log 34100 131683999286848 Not Found: /api/financial-data/2025/
+WARNING 2025-02-24 21:18:01,750 basehttp 34100 131683999286848 "GET /api/financial-data/2025/?organization=3 HTTP/1.1" 404 2740
+INFO 2025-02-24 21:18:15,698 basehttp 34100 131683999286848 "OPTIONS /api/financial-data/2025/?organization=Your+Organization HTTP/1.1" 200 0
+WARNING 2025-02-24 21:18:15,703 log 34100 131683999286848 Not Found: /api/financial-data/2025/
+WARNING 2025-02-24 21:18:15,703 basehttp 34100 131683999286848 "GET /api/financial-data/2025/?organization=Your+Organization HTTP/1.1" 404 2756
+INFO 2025-02-24 21:19:15,904 autoreload 34100 131685577277440 /home/sukriti/insuretech/server/organization/urls.py changed, reloading.
+INFO 2025-02-24 21:19:16,423 autoreload 34522 129914861301760 Watching for file changes with StatReloader
+INFO 2025-02-24 21:19:50,557 autoreload 34522 129914861301760 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:19:51,126 autoreload 34671 135094938378240 Watching for file changes with StatReloader
+INFO 2025-02-24 21:20:27,627 basehttp 34671 135093486093888 "OPTIONS /api/financial-data/2025/ HTTP/1.1" 200 0
+WARNING 2025-02-24 21:20:27,638 log 34671 135093486093888 Not Found: /api/financial-data/2025/
+WARNING 2025-02-24 21:20:27,638 basehttp 34671 135093486093888 "GET /api/financial-data/2025/ HTTP/1.1" 404 2725
+WARNING 2025-02-24 21:20:28,342 log 34671 135093486093888 Not Found: /api/financial-data/2025/
+WARNING 2025-02-24 21:20:28,343 basehttp 34671 135093486093888 "GET /api/financial-data/2025/ HTTP/1.1" 404 2725
+WARNING 2025-02-24 21:20:29,488 log 34671 135093486093888 Not Found: /api/financial-data/2025/
+WARNING 2025-02-24 21:20:29,488 basehttp 34671 135093486093888 "GET /api/financial-data/2025/ HTTP/1.1" 404 2725
+WARNING 2025-02-24 21:22:42,218 log 34671 135093486093888 Not Found: /api/financial-data/2025/
+WARNING 2025-02-24 21:22:42,218 basehttp 34671 135093486093888 "GET /api/financial-data/2025/ HTTP/1.1" 404 2725
+INFO 2025-02-24 21:26:59,213 basehttp 34671 135093486093888 "OPTIONS /api/v1/documents/upload/ HTTP/1.1" 200 0
+WARNING 2025-02-24 21:26:59,239 log 34671 135093486093888 Not Found: /api/v1/documents/upload/
+WARNING 2025-02-24 21:26:59,240 basehttp 34671 135093486093888 "POST /api/v1/documents/upload/ HTTP/1.1" 404 5444
+INFO 2025-02-24 21:27:17,625 basehttp 34671 135093475608128 "GET /admin/organization/chargesheetdata/ HTTP/1.1" 200 23439
+INFO 2025-02-24 21:27:17,670 basehttp 34671 135093475608128 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:27:19,677 basehttp 34671 135093475608128 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 22362
+INFO 2025-02-24 21:27:19,720 basehttp 34671 135093475608128 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:27:21,819 basehttp 34671 135093475608128 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 22362
+INFO 2025-02-24 21:27:21,864 basehttp 34671 135093475608128 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:27:22,481 basehttp 34671 135093475608128 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 22362
+INFO 2025-02-24 21:27:22,510 basehttp 34671 135093475608128 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:27:22,720 basehttp 34671 135093475608128 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 22362
+INFO 2025-02-24 21:27:22,758 basehttp 34671 135093475608128 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:27:23,005 basehttp 34671 135093475608128 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 22362
+INFO 2025-02-24 21:27:23,044 basehttp 34671 135093475608128 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:28:01,528 autoreload 34671 135094938378240 /home/sukriti/insuretech/server/organization/urls.py changed, reloading.
+INFO 2025-02-24 21:28:02,069 autoreload 35291 137179249844224 Watching for file changes with StatReloader
+WARNING 2025-02-24 21:28:50,889 log 35291 137177799329344 Unauthorized: /api/v1/documents/upload/
+WARNING 2025-02-24 21:28:50,890 basehttp 35291 137177799329344 "POST /api/v1/documents/upload/ HTTP/1.1" 401 183
+INFO 2025-02-24 21:29:09,962 basehttp 35291 137177786746432 "OPTIONS /api/v1/auth/token/ HTTP/1.1" 200 0
+INFO 2025-02-24 21:29:10,210 basehttp 35291 137177776260672 "POST /api/v1/auth/token/ HTTP/1.1" 200 797
+INFO 2025-02-24 21:29:10,215 basehttp 35291 137177786746432 "OPTIONS /api/v1/auth/me/ HTTP/1.1" 200 0
+INFO 2025-02-24 21:29:10,227 basehttp 35291 137177776260672 "GET /api/v1/auth/me/ HTTP/1.1" 200 84
+INFO 2025-02-24 21:29:27,382 basehttp 35291 137177799329344 "OPTIONS /api/v1/organizations/ HTTP/1.1" 200 0
+INFO 2025-02-24 21:29:27,421 basehttp 35291 137177696568896 "POST /api/v1/organizations/ HTTP/1.1" 201 96
+INFO 2025-02-24 21:29:30,413 basehttp 35291 137177799329344 "OPTIONS /api/v1/financial-data/2025/ HTTP/1.1" 200 0
+INFO 2025-02-24 21:29:30,424 views 35291 137177799329344 === FinancialDataView.get called ===
+INFO 2025-02-24 21:29:30,425 views 35291 137177799329344 User: admin
+ERROR 2025-02-24 21:29:30,474 log 35291 137177799329344 Internal Server Error: /api/v1/financial-data/2025/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 487, in get
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:29:30,475 basehttp 35291 137177799329344 "GET /api/v1/financial-data/2025/ HTTP/1.1" 500 100314
+INFO 2025-02-24 21:29:45,841 views 35291 137177799329344 === File Upload Started ===
+INFO 2025-02-24 21:29:45,841 views 35291 137177799329344 User: admin
+ERROR 2025-02-24 21:29:45,841 views 35291 137177799329344 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 38, in post
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:29:45,842 log 35291 137177799329344 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:29:45,843 basehttp 35291 137177799329344 "POST /api/v1/documents/upload/ HTTP/1.1" 500 90
+INFO 2025-02-24 21:30:46,478 autoreload 35291 137179249844224 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:30:47,007 autoreload 35823 123576995409920 Watching for file changes with StatReloader
+INFO 2025-02-24 21:31:00,512 views 35823 123575543531072 === File Upload Started ===
+INFO 2025-02-24 21:31:00,512 views 35823 123575543531072 User: admin
+INFO 2025-02-24 21:31:00,515 views 35823 123575543531072 Request Data: <QueryDict: {'title': ['balance_sheet_2023.xlsx'], 'year': ['2025'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2023.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 21:31:00,516 views 35823 123575543531072 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 39, in post
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:31:00,519 log 35823 123575543531072 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:31:00,520 basehttp 35823 123575543531072 "POST /api/v1/documents/upload/ HTTP/1.1" 500 94
+INFO 2025-02-24 21:32:02,281 autoreload 35823 123576995409920 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:32:03,065 autoreload 36020 126384902684672 Watching for file changes with StatReloader
+INFO 2025-02-24 21:33:06,150 basehttp 36020 126383451801152 "POST /api/v1/organizations/ HTTP/1.1" 201 101
+INFO 2025-02-24 21:33:18,034 views 36020 126383370012224 === FinancialDataView.get called ===
+INFO 2025-02-24 21:33:18,034 views 36020 126383370012224 User: admin
+WARNING 2025-02-24 21:33:18,035 log 36020 126383370012224 Bad Request: /api/v1/financial-data/2025/
+WARNING 2025-02-24 21:33:18,035 basehttp 36020 126383370012224 "GET /api/v1/financial-data/2025/ HTTP/1.1" 400 137
+INFO 2025-02-24 21:33:18,388 autoreload 36020 126384902684672 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:33:19,032 autoreload 36283 128704110338048 Watching for file changes with StatReloader
+INFO 2025-02-24 21:34:27,959 basehttp 36283 128702658643520 "OPTIONS /api/v1/financial-data/202/ HTTP/1.1" 200 0
+INFO 2025-02-24 21:34:27,985 views 36283 128702658643520 === FinancialDataView.get called ===
+INFO 2025-02-24 21:34:27,985 views 36283 128702658643520 User: admin
+ERROR 2025-02-24 21:34:28,019 log 36283 128702658643520 Internal Server Error: /api/v1/financial-data/202/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 514, in get
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:34:28,020 basehttp 36283 128702658643520 "GET /api/v1/financial-data/202/ HTTP/1.1" 500 100291
+INFO 2025-02-24 21:34:28,155 basehttp 36283 128702658643520 "OPTIONS /api/v1/financial-data/2021/ HTTP/1.1" 200 0
+INFO 2025-02-24 21:34:28,209 views 36283 128702658643520 === FinancialDataView.get called ===
+INFO 2025-02-24 21:34:28,209 views 36283 128702658643520 User: admin
+ERROR 2025-02-24 21:34:28,245 log 36283 128702658643520 Internal Server Error: /api/v1/financial-data/2021/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 514, in get
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:34:28,246 basehttp 36283 128702658643520 "GET /api/v1/financial-data/2021/ HTTP/1.1" 500 100314
+INFO 2025-02-24 21:34:31,368 views 36283 128702658643520 === File Upload Started ===
+INFO 2025-02-24 21:34:31,368 views 36283 128702658643520 User: admin
+INFO 2025-02-24 21:34:31,372 views 36283 128702658643520 Request Data: <QueryDict: {'title': ['chargesheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: chargesheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 21:34:31,372 views 36283 128702658643520 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 39, in post
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:34:31,374 log 36283 128702658643520 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:34:31,375 basehttp 36283 128702658643520 "POST /api/v1/documents/upload/ HTTP/1.1" 500 94
+INFO 2025-02-24 21:35:48,013 basehttp 36283 128702646060608 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 22509
+INFO 2025-02-24 21:35:48,042 basehttp 36283 128702646060608 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:35:54,697 views 36283 128702658643520 === FinancialDataView.get called ===
+INFO 2025-02-24 21:35:54,697 views 36283 128702658643520 User: admin
+ERROR 2025-02-24 21:35:54,731 log 36283 128702658643520 Internal Server Error: /api/v1/financial-data/2025/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 514, in get
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:35:54,732 basehttp 36283 128702658643520 "GET /api/v1/financial-data/2025/ HTTP/1.1" 500 100314
+INFO 2025-02-24 21:36:02,613 basehttp 36283 128702625089088 "POST /api/v1/auth/token/ HTTP/1.1" 200 797
+INFO 2025-02-24 21:36:02,627 basehttp 36283 128702625089088 "GET /api/v1/auth/me/ HTTP/1.1" 200 84
+INFO 2025-02-24 21:36:09,135 basehttp 36283 128702646060608 "GET /admin/authentication/organization/ HTTP/1.1" 200 18373
+INFO 2025-02-24 21:36:09,166 basehttp 36283 128702646060608 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:36:15,185 basehttp 36283 128702646060608 "POST /admin/authentication/organization/ HTTP/1.1" 200 17887
+INFO 2025-02-24 21:36:15,208 basehttp 36283 128702646060608 "GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:16,810 basehttp 36283 128702646060608 "POST /admin/authentication/organization/ HTTP/1.1" 302 0
+INFO 2025-02-24 21:36:16,846 basehttp 36283 128702646060608 "GET /admin/authentication/organization/ HTTP/1.1" 200 15346
+INFO 2025-02-24 21:36:16,911 basehttp 36283 128702646060608 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:36:26,498 basehttp 36283 128702646060608 "POST /api/v1/organizations/ HTTP/1.1" 201 94
+INFO 2025-02-24 21:36:28,979 views 36283 128702658643520 === FinancialDataView.get called ===
+INFO 2025-02-24 21:36:28,979 views 36283 128702658643520 User: admin
+ERROR 2025-02-24 21:36:29,018 log 36283 128702658643520 Internal Server Error: /api/v1/financial-data/2025/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 514, in get
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:36:29,019 basehttp 36283 128702658643520 "GET /api/v1/financial-data/2025/ HTTP/1.1" 500 100314
+INFO 2025-02-24 21:36:34,888 basehttp 36283 128702646060608 "GET /admin/authentication/organization/ HTTP/1.1" 200 16864
+INFO 2025-02-24 21:36:34,910 basehttp 36283 128702646060608 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:36:37,485 basehttp 36283 128702646060608 "GET /admin/authentication/user/ HTTP/1.1" 200 20246
+INFO 2025-02-24 21:36:37,513 basehttp 36283 128702635574848 "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:37,530 basehttp 36283 128702646060608 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:36:39,416 basehttp 36283 128702646060608 "GET /admin/authentication/user/2/change/ HTTP/1.1" 200 40208
+INFO 2025-02-24 21:36:39,455 basehttp 36283 128702635574848 "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:39,459 basehttp 36283 128702614603328 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:39,478 basehttp 36283 128702614603328 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:39,478 basehttp 36283 128702646060608 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:36:39,609 basehttp 36283 128702614603328 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:39,610 basehttp 36283 128702646060608 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:39,611 basehttp 36283 128702635574848 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:39,611 basehttp 36283 128702604117568 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+INFO 2025-02-24 21:36:44,904 basehttp 36283 128702604117568 "POST /admin/authentication/user/2/change/ HTTP/1.1" 302 0
+INFO 2025-02-24 21:36:44,968 basehttp 36283 128702604117568 "GET /admin/authentication/user/ HTTP/1.1" 200 20453
+INFO 2025-02-24 21:36:45,061 basehttp 36283 128702604117568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:36:48,785 basehttp 36283 128702604117568 "GET /admin/org/financialinsight/ HTTP/1.1" 200 14867
+INFO 2025-02-24 21:36:48,835 basehttp 36283 128702604117568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:36:50,715 basehttp 36283 128702604117568 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 16573
+INFO 2025-02-24 21:36:50,761 basehttp 36283 128702604117568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:37:03,574 views 36283 128702658643520 === FinancialDataView.get called ===
+INFO 2025-02-24 21:37:03,574 views 36283 128702658643520 User: admin
+ERROR 2025-02-24 21:37:03,603 log 36283 128702658643520 Internal Server Error: /api/v1/financial-data/202/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 514, in get
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:37:03,604 basehttp 36283 128702658643520 "GET /api/v1/financial-data/202/ HTTP/1.1" 500 100291
+INFO 2025-02-24 21:37:03,662 basehttp 36283 128702658643520 "OPTIONS /api/v1/financial-data/2023/ HTTP/1.1" 200 0
+INFO 2025-02-24 21:37:03,672 views 36283 128702658643520 === FinancialDataView.get called ===
+INFO 2025-02-24 21:37:03,673 views 36283 128702658643520 User: admin
+ERROR 2025-02-24 21:37:03,686 log 36283 128702658643520 Internal Server Error: /api/v1/financial-data/2023/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 514, in get
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:37:03,686 basehttp 36283 128702658643520 "GET /api/v1/financial-data/2023/ HTTP/1.1" 500 100314
+INFO 2025-02-24 21:37:05,467 views 36283 128702658643520 === File Upload Started ===
+INFO 2025-02-24 21:37:05,467 views 36283 128702658643520 User: admin
+INFO 2025-02-24 21:37:05,467 views 36283 128702658643520 Request Data: <QueryDict: {'title': ['balance_sheet_2023.xlsx'], 'year': ['2023'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2023.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 21:37:05,468 views 36283 128702658643520 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 39, in post
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:37:05,469 log 36283 128702658643520 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:37:05,469 basehttp 36283 128702658643520 "POST /api/v1/documents/upload/ HTTP/1.1" 500 94
+INFO 2025-02-24 21:38:23,072 autoreload 36283 128704110338048 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:38:23,713 autoreload 36972 127437122351104 Watching for file changes with StatReloader
+INFO 2025-02-24 21:38:32,314 autoreload 36972 127437122351104 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:38:33,133 autoreload 37057 131046216249344 Watching for file changes with StatReloader
+INFO 2025-02-24 21:39:17,212 views 37057 131044764288576 === FinancialDataView.get called ===
+INFO 2025-02-24 21:39:17,212 views 37057 131044764288576 User: admin
+ERROR 2025-02-24 21:39:17,267 log 37057 131044764288576 Internal Server Error: /api/v1/financial-data/202/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 513, in get
+    if not request.user.organization:
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:39:17,269 basehttp 37057 131044764288576 "GET /api/v1/financial-data/202/ HTTP/1.1" 500 100311
+INFO 2025-02-24 21:39:17,290 views 37057 131044764288576 === FinancialDataView.get called ===
+INFO 2025-02-24 21:39:17,290 views 37057 131044764288576 User: admin
+ERROR 2025-02-24 21:39:17,312 log 37057 131044764288576 Internal Server Error: /api/v1/financial-data/2021/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 513, in get
+    if not request.user.organization:
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:39:17,312 basehttp 37057 131044764288576 "GET /api/v1/financial-data/2021/ HTTP/1.1" 500 100334
+INFO 2025-02-24 21:39:18,722 views 37057 131044764288576 === File Upload Started ===
+INFO 2025-02-24 21:39:18,722 views 37057 131044764288576 User: admin
+INFO 2025-02-24 21:39:18,725 views 37057 131044764288576 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 21:39:18,725 views 37057 131044764288576 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 39, in post
+    if not request.user.organization:
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:39:18,726 log 37057 131044764288576 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:39:18,727 basehttp 37057 131044764288576 "POST /api/v1/documents/upload/ HTTP/1.1" 500 94
+INFO 2025-02-24 21:39:39,211 basehttp 37057 131044684596800 "GET /admin/authentication/user/ HTTP/1.1" 200 20250
+INFO 2025-02-24 21:39:39,241 basehttp 37057 131044684596800 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:39:42,054 basehttp 37057 131044684596800 "GET /admin/authentication/user/2/change/ HTTP/1.1" 200 40208
+INFO 2025-02-24 21:39:42,096 basehttp 37057 131044684596800 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:41:09,744 autoreload 37057 131046216249344 /home/sukriti/insuretech/server/authentication/views.py changed, reloading.
+INFO 2025-02-24 21:41:10,398 autoreload 37467 134662128533504 Watching for file changes with StatReloader
+INFO 2025-02-24 21:41:27,219 autoreload 37467 134662128533504 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:41:27,876 autoreload 37552 129472935305216 Watching for file changes with StatReloader
+INFO 2025-02-24 21:41:42,363 views 37552 129471482955328 === File Upload Started ===
+INFO 2025-02-24 21:41:42,363 views 37552 129471482955328 User: admin
+INFO 2025-02-24 21:41:42,367 views 37552 129471482955328 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 21:41:42,377 views 37552 129471482955328 Error in file upload: User matching query does not exist.
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 39, in post
+    user = User.objects.select_related('organization').get(id=request.user.id)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+authentication.models.User.DoesNotExist: User matching query does not exist.
+ERROR 2025-02-24 21:41:42,382 log 37552 129471482955328 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:41:42,384 basehttp 37552 129471482955328 "POST /api/v1/documents/upload/ HTTP/1.1" 500 94
+INFO 2025-02-24 21:42:53,106 views 37552 129471482955328 === File Upload Started ===
+INFO 2025-02-24 21:42:53,106 views 37552 129471482955328 User: admin
+INFO 2025-02-24 21:42:53,107 views 37552 129471482955328 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 21:42:53,111 views 37552 129471482955328 Error in file upload: User matching query does not exist.
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 39, in post
+    user = User.objects.select_related('organization').get(id=request.user.id)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+authentication.models.User.DoesNotExist: User matching query does not exist.
+ERROR 2025-02-24 21:42:53,111 log 37552 129471482955328 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:42:53,112 basehttp 37552 129471482955328 "POST /api/v1/documents/upload/ HTTP/1.1" 500 94
+INFO 2025-02-24 21:42:58,628 basehttp 37552 129471470372416 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 16573
+INFO 2025-02-24 21:42:58,655 basehttp 37552 129471470372416 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:43:00,711 basehttp 37552 129471470372416 "GET /admin/org/financialinsight/ HTTP/1.1" 200 14867
+INFO 2025-02-24 21:43:00,738 basehttp 37552 129471470372416 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:43:01,597 autoreload 37552 129472935305216 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:43:02,313 autoreload 37782 124499860615168 Watching for file changes with StatReloader
+INFO 2025-02-24 21:43:03,969 basehttp 37782 124498409948736 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 16573
+INFO 2025-02-24 21:43:04,002 basehttp 37782 124498409948736 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:43:17,178 autoreload 37782 124499860615168 /home/sukriti/insuretech/server/organization/models.py changed, reloading.
+INFO 2025-02-24 21:43:17,780 autoreload 37912 128613569961984 Watching for file changes with StatReloader
+INFO 2025-02-24 21:43:32,130 views 37912 128612118300224 === File Upload Started ===
+INFO 2025-02-24 21:43:32,130 views 37912 128612118300224 User: admin
+INFO 2025-02-24 21:43:32,133 views 37912 128612118300224 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 21:43:32,142 views 37912 128612118300224 Error in file upload: User matching query does not exist.
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 39, in post
+    user = User.objects.select_related('organization').get(id=request.user.id)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+authentication.models.User.DoesNotExist: User matching query does not exist.
+ERROR 2025-02-24 21:43:32,147 log 37912 128612118300224 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:43:32,149 basehttp 37912 128612118300224 "POST /api/v1/documents/upload/ HTTP/1.1" 500 94
+INFO 2025-02-24 21:44:31,136 autoreload 37912 128613569961984 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:44:31,863 autoreload 38081 123929348771840 Watching for file changes with StatReloader
+INFO 2025-02-24 21:44:50,761 autoreload 38081 123929348771840 /home/sukriti/insuretech/server/insuretech/settings.py changed, reloading.
+INFO 2025-02-24 21:44:51,288 autoreload 38201 134839096176640 Watching for file changes with StatReloader
+INFO 2025-02-24 21:44:57,547 views 38201 134837644035648 === File Upload Started ===
+INFO 2025-02-24 21:44:57,547 views 38201 134837644035648 User: admin
+INFO 2025-02-24 21:44:57,548 views 38201 134837644035648 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 21:44:57,548 views 38201 134837644035648 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 46, in post
+    organization = request.user.organization
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 21:44:57,550 log 38201 134837644035648 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:44:57,550 basehttp 38201 134837644035648 "POST /api/v1/documents/upload/ HTTP/1.1" 500 94
+INFO 2025-02-24 21:45:23,361 autoreload 38201 134839096176640 /home/sukriti/insuretech/server/insuretech/settings.py changed, reloading.
+INFO 2025-02-24 21:45:24,105 autoreload 38354 138304730886144 Watching for file changes with StatReloader
+INFO 2025-02-24 21:45:33,779 autoreload 38354 138304730886144 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 21:45:34,351 autoreload 38439 130774387417088 Watching for file changes with StatReloader
+INFO 2025-02-24 21:45:43,153 views 38439 130772935640640 === File Upload Started ===
+INFO 2025-02-24 21:45:43,153 views 38439 130772935640640 User: admin
+INFO 2025-02-24 21:45:43,154 views 38439 130772935640640 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 21:45:43,160 views 38439 130772935640640 Uploading file for organization: 3
+INFO 2025-02-24 21:45:43,160 views 38439 130772935640640 File details - Name: balance_sheet_2021.xlsx, Title: balance_sheet_2021.xlsx, Year: 2021, Type: BALANCE_SHEET
+INFO 2025-02-24 21:45:43,182 views 38439 130772935640640 Document created successfully: 50
+ERROR 2025-02-24 21:45:43,187 views 38439 130772935640640 Error creating document record: Got AttributeError when attempting to get a value for field `reportType` on serializer `FinancialDocumentSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `FinancialDocument` instance.
+Original exception text was: 'FinancialDocument' object has no attribute 'reportType'.
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/fields.py", line 104, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'FinancialDocument' object has no attribute 'reportType'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 105, in post
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 571, in data
+    ret = super().data
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 525, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `reportType` on serializer `FinancialDocumentSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `FinancialDocument` instance.
+Original exception text was: 'FinancialDocument' object has no attribute 'reportType'.
+ERROR 2025-02-24 21:45:43,193 log 38439 130772935640640 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:45:43,194 basehttp 38439 130772935640640 "POST /api/v1/documents/upload/ HTTP/1.1" 500 82
+INFO 2025-02-24 21:45:48,170 basehttp 38439 130772925154880 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 19765
+INFO 2025-02-24 21:45:48,214 basehttp 38439 130772925154880 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:45:54,730 basehttp 38439 130772925154880 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 19765
+INFO 2025-02-24 21:45:54,756 basehttp 38439 130772925154880 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:49:23,773 views 38439 130772935640640 === File Upload Started ===
+INFO 2025-02-24 21:49:23,773 views 38439 130772935640640 User: admin
+INFO 2025-02-24 21:49:23,774 views 38439 130772935640640 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 21:49:23,778 views 38439 130772935640640 Uploading file for organization: 3
+INFO 2025-02-24 21:49:23,778 views 38439 130772935640640 File details - Name: balance_sheet_2021.xlsx, Title: balance_sheet_2021.xlsx, Year: 2021, Type: BALANCE_SHEET
+INFO 2025-02-24 21:49:23,793 views 38439 130772935640640 Document created successfully: 51
+ERROR 2025-02-24 21:49:23,794 views 38439 130772935640640 Error creating document record: Got AttributeError when attempting to get a value for field `reportType` on serializer `FinancialDocumentSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `FinancialDocument` instance.
+Original exception text was: 'FinancialDocument' object has no attribute 'reportType'.
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/fields.py", line 437, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/fields.py", line 104, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'FinancialDocument' object has no attribute 'reportType'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 105, in post
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 571, in data
+    ret = super().data
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 525, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/fields.py", line 470, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `reportType` on serializer `FinancialDocumentSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `FinancialDocument` instance.
+Original exception text was: 'FinancialDocument' object has no attribute 'reportType'.
+ERROR 2025-02-24 21:49:23,794 log 38439 130772935640640 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 21:49:23,795 basehttp 38439 130772935640640 "POST /api/v1/documents/upload/ HTTP/1.1" 500 82
+INFO 2025-02-24 21:50:27,919 autoreload 38439 130774387417088 /home/sukriti/insuretech/server/organization/serializers.py changed, reloading.
+INFO 2025-02-24 21:50:28,545 autoreload 39078 124879835049984 Watching for file changes with StatReloader
+INFO 2025-02-24 21:50:38,155 views 39078 124878382433856 === File Upload Started ===
+INFO 2025-02-24 21:50:38,155 views 39078 124878382433856 User: admin
+INFO 2025-02-24 21:50:38,157 views 39078 124878382433856 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 21:50:38,165 views 39078 124878382433856 Uploading file for organization: 3
+INFO 2025-02-24 21:50:38,165 views 39078 124878382433856 File details - Name: balance_sheet_2021.xlsx, Title: balance_sheet_2021.xlsx, Year: 2021, Type: BALANCE_SHEET
+INFO 2025-02-24 21:50:38,172 views 39078 124878382433856 Document created successfully: 52
+INFO 2025-02-24 21:50:38,176 basehttp 39078 124878382433856 "POST /api/v1/documents/upload/ HTTP/1.1" 201 248
+INFO 2025-02-24 21:50:38,216 views 39078 124878382433856 === FinancialDataView.get called ===
+INFO 2025-02-24 21:50:38,217 views 39078 124878382433856 User: admin
+ERROR 2025-02-24 21:50:38,260 log 39078 124878382433856 Internal Server Error: /api/v1/financial-data/2021/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 522, in get
+    user = User.objects.select_related('organization').get(id=request.user.id)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+authentication.models.User.DoesNotExist: User matching query does not exist.
+ERROR 2025-02-24 21:50:38,261 basehttp 39078 124878382433856 "GET /api/v1/financial-data/2021/ HTTP/1.1" 500 104777
+INFO 2025-02-24 21:53:46,911 basehttp 39078 124878382433856 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 21178
+INFO 2025-02-24 21:53:46,940 basehttp 39078 124878382433856 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-02-24 21:53:54,116 log 39078 124878382433856 Internal Server Error: /admin/organization/financialdocument/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column organization_balancesheetdata.organization_name does not exist
+LINE 1: SELECT "organization_balancesheetdata"."id", "organization_b...
+                                                     ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2034, in changelist_view
+    response = self.response_action(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1666, in response_action
+    response = func(self, request, queryset)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/actions.py", line 39, in delete_selected
+    ) = modeladmin.get_deleted_objects(queryset, request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2176, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/utils.py", line 138, in get_deleted_objects
+    collector.collect(objs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/utils.py", line 205, in collect
+    return super().collect(objs, source_attr=source_attr, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/deletion.py", line 344, in collect
+    if getattr(on_delete, "lazy_sub_objs", False) or sub_objs:
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 414, in __bool__
+    self._fetch_all()
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column organization_balancesheetdata.organization_name does not exist
+LINE 1: SELECT "organization_balancesheetdata"."id", "organization_b...
+                                                     ^
+
+ERROR 2025-02-24 21:53:54,117 basehttp 39078 124878382433856 "POST /admin/organization/financialdocument/ HTTP/1.1" 500 217355
+INFO 2025-02-24 21:54:03,309 autoreload 39365 127446819573760 Watching for file changes with StatReloader
+INFO 2025-02-24 21:54:15,909 basehttp 39078 124878382433856 "GET /admin/organization/ HTTP/1.1" 200 6783
+INFO 2025-02-24 21:54:15,942 basehttp 39078 124878382433856 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-02-24 21:54:19,180 basehttp 39078 124878382433856 "GET /admin/ HTTP/1.1" 200 19724
+INFO 2025-02-24 21:54:24,101 basehttp 39078 124878382433856 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 21178
+INFO 2025-02-24 21:54:24,144 basehttp 39078 124878382433856 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-02-24 21:54:30,331 log 39078 124878382433856 Internal Server Error: /admin/organization/financialdocument/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column organization_balancesheetdata.organization_name does not exist
+LINE 1: SELECT "organization_balancesheetdata"."id", "organization_b...
+                                                     ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2034, in changelist_view
+    response = self.response_action(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1666, in response_action
+    response = func(self, request, queryset)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/actions.py", line 39, in delete_selected
+    ) = modeladmin.get_deleted_objects(queryset, request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2176, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/utils.py", line 138, in get_deleted_objects
+    collector.collect(objs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/utils.py", line 205, in collect
+    return super().collect(objs, source_attr=source_attr, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/deletion.py", line 344, in collect
+    if getattr(on_delete, "lazy_sub_objs", False) or sub_objs:
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 414, in __bool__
+    self._fetch_all()
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column organization_balancesheetdata.organization_name does not exist
+LINE 1: SELECT "organization_balancesheetdata"."id", "organization_b...
+                                                     ^
+
+ERROR 2025-02-24 21:54:30,332 basehttp 39078 124878382433856 "POST /admin/organization/financialdocument/ HTTP/1.1" 500 217355
+INFO 2025-02-24 21:55:42,460 basehttp 39078 124878382433856 "GET /admin/organization HTTP/1.1" 301 0
+INFO 2025-02-24 21:55:42,492 basehttp 39078 124878382433856 "GET /admin/organization/ HTTP/1.1" 200 6783
+INFO 2025-02-24 21:55:45,175 basehttp 39078 124878382433856 "GET /admin/ HTTP/1.1" 200 19724
+INFO 2025-02-24 21:55:51,600 views 39078 124878359365184 === File Upload Started ===
+INFO 2025-02-24 21:55:51,601 views 39078 124878359365184 User: admin
+INFO 2025-02-24 21:55:51,602 views 39078 124878359365184 Request Data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 21:55:51,605 views 39078 124878359365184 Uploading file for organization: 3
+INFO 2025-02-24 21:55:51,606 views 39078 124878359365184 File details - Name: balance_sheet_2021.xlsx, Title: balance_sheet_2021.xlsx, Year: 2021, Type: BALANCE_SHEET
+INFO 2025-02-24 21:55:51,621 views 39078 124878359365184 Document created successfully: 53
+INFO 2025-02-24 21:55:51,624 basehttp 39078 124878359365184 "POST /api/v1/documents/upload/ HTTP/1.1" 201 248
+INFO 2025-02-24 21:55:51,660 views 39078 124878359365184 === FinancialDataView.get called ===
+INFO 2025-02-24 21:55:51,661 views 39078 124878359365184 User: admin
+ERROR 2025-02-24 21:55:51,698 log 39078 124878359365184 Internal Server Error: /api/v1/financial-data/2021/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/server/organization/views.py", line 522, in get
+    user = User.objects.select_related('organization').get(id=request.user.id)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+authentication.models.User.DoesNotExist: User matching query does not exist.
+ERROR 2025-02-24 21:55:51,699 basehttp 39078 124878359365184 "GET /api/v1/financial-data/2021/ HTTP/1.1" 500 104777
+INFO 2025-02-24 21:56:21,844 basehttp 39078 124878382433856 "GET /admin/org/financialinsight/ HTTP/1.1" 200 14867
+INFO 2025-02-24 21:56:21,880 basehttp 39078 124878382433856 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:56:23,079 basehttp 39078 124878382433856 "GET /admin/org/financialinsight/ HTTP/1.1" 200 14867
+INFO 2025-02-24 21:56:23,112 basehttp 39078 124878382433856 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:56:24,876 basehttp 39078 124878382433856 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 21884
+INFO 2025-02-24 21:56:24,911 basehttp 39078 124878382433856 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-02-24 21:56:30,887 log 39078 124878382433856 Internal Server Error: /admin/organization/financialdocument/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column organization_balancesheetdata.organization_name does not exist
+LINE 1: SELECT "organization_balancesheetdata"."id", "organization_b...
+                                                     ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2034, in changelist_view
+    response = self.response_action(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1666, in response_action
+    response = func(self, request, queryset)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/actions.py", line 39, in delete_selected
+    ) = modeladmin.get_deleted_objects(queryset, request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2176, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/utils.py", line 138, in get_deleted_objects
+    collector.collect(objs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/utils.py", line 205, in collect
+    return super().collect(objs, source_attr=source_attr, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/deletion.py", line 344, in collect
+    if getattr(on_delete, "lazy_sub_objs", False) or sub_objs:
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 414, in __bool__
+    self._fetch_all()
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column organization_balancesheetdata.organization_name does not exist
+LINE 1: SELECT "organization_balancesheetdata"."id", "organization_b...
+                                                     ^
+
+ERROR 2025-02-24 21:56:30,887 basehttp 39078 124878382433856 "POST /admin/organization/financialdocument/ HTTP/1.1" 500 218266
+ERROR 2025-02-24 21:56:43,101 log 39078 124878382433856 Internal Server Error: /admin/organization/financialdocument/
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column organization_balancesheetdata.organization_name does not exist
+LINE 1: SELECT "organization_balancesheetdata"."id", "organization_b...
+                                                     ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2034, in changelist_view
+    response = self.response_action(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1666, in response_action
+    response = func(self, request, queryset)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/actions.py", line 39, in delete_selected
+    ) = modeladmin.get_deleted_objects(queryset, request)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2176, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/utils.py", line 138, in get_deleted_objects
+    collector.collect(objs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/contrib/admin/utils.py", line 205, in collect
+    return super().collect(objs, source_attr=source_attr, **kwargs)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/deletion.py", line 344, in collect
+    if getattr(on_delete, "lazy_sub_objs", False) or sub_objs:
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 414, in __bool__
+    self._fetch_all()
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/sukriti/insuretech/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column organization_balancesheetdata.organization_name does not exist
+LINE 1: SELECT "organization_balancesheetdata"."id", "organization_b...
+                                                     ^
+
+ERROR 2025-02-24 21:56:43,102 basehttp 39078 124878382433856 "POST /admin/organization/financialdocument/ HTTP/1.1" 500 218266
+INFO 2025-02-24 21:57:00,857 autoreload 39078 124879835049984 /home/sukriti/insuretech/server/insuretech/settings.py changed, reloading.
+INFO 2025-02-24 21:57:01,677 autoreload 39917 138804262416384 Watching for file changes with StatReloader
+WARNING 2025-02-24 21:57:11,269 log 39917 138802809013824 Not Found: /
+WARNING 2025-02-24 21:57:11,271 basehttp 39917 138802809013824 "GET / HTTP/1.1" 404 2633
+WARNING 2025-02-24 21:57:11,505 log 39917 138802809013824 Not Found: /favicon.ico
+WARNING 2025-02-24 21:57:11,506 basehttp 39917 138802809013824 "GET /favicon.ico HTTP/1.1" 404 2684
+INFO 2025-02-24 21:57:20,205 basehttp 39917 138802809013824 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-02-24 21:57:20,232 basehttp 39917 138802809013824 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4160
+INFO 2025-02-24 21:57:20,296 basehttp 39917 138802798528064 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-02-24 21:57:20,297 basehttp 39917 138802809013824 "GET /static/admin/css/base.css HTTP/1.1" 200 22092
+INFO 2025-02-24 21:57:20,298 basehttp 39917 138802788042304 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2804
+INFO 2025-02-24 21:57:20,303 basehttp 39917 138802788042304 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-02-24 21:57:20,305 basehttp 39917 138802798528064 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-02-24 21:57:20,342 basehttp 39917 138802809013824 "GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+INFO 2025-02-24 21:57:20,354 basehttp 39917 138802798528064 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-02-24 21:57:23,702 basehttp 39917 138802798528064 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-02-24 21:57:23,758 basehttp 39917 138802798528064 "GET /admin/ HTTP/1.1" 200 19724
+INFO 2025-02-24 21:57:23,841 basehttp 39917 138802798528064 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-02-24 21:57:23,856 basehttp 39917 138802798528064 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-02-24 21:57:23,857 basehttp 39917 138802788042304 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-02-24 21:57:23,858 basehttp 39917 138802809013824 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-02-24 21:57:27,258 basehttp 39917 138802798528064 "GET /admin/authentication/organization/ HTTP/1.1" 200 16864
+INFO 2025-02-24 21:57:27,290 basehttp 39917 138802777556544 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-02-24 21:57:27,291 basehttp 39917 138802798528064 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-02-24 21:57:27,300 basehttp 39917 138802767070784 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-02-24 21:57:27,302 basehttp 39917 138802777556544 "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-02-24 21:57:27,312 basehttp 39917 138802756585024 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+INFO 2025-02-24 21:57:27,320 basehttp 39917 138802767070784 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-02-24 21:57:27,320 basehttp 39917 138802788042304 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:57:27,321 basehttp 39917 138802756585024 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-02-24 21:57:27,322 basehttp 39917 138802809013824 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-02-24 21:57:27,328 basehttp 39917 138802809013824 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-02-24 21:57:27,331 basehttp 39917 138802788042304 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-02-24 21:57:27,377 basehttp 39917 138802788042304 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-02-24 21:57:27,400 basehttp 39917 138802809013824 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-02-24 21:57:31,713 basehttp 39917 138802809013824 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 21884
+INFO 2025-02-24 21:57:31,749 basehttp 39917 138802809013824 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:57:31,832 basehttp 39917 138802809013824 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-02-24 21:57:31,832 basehttp 39917 138802788042304 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-02-24 21:57:33,328 basehttp 39917 138802809013824 "GET /admin/organization/chargesheetdata/ HTTP/1.1" 200 16942
+INFO 2025-02-24 21:57:33,375 basehttp 39917 138802809013824 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-02-24 21:57:38,362 log 39917 138802670601792 Not Found: /api/v1/documents/upload/
+WARNING 2025-02-24 21:57:38,362 basehttp 39917 138802670601792 "POST /api/v1/documents/upload/ HTTP/1.1" 404 5731
+INFO 2025-02-24 21:58:05,453 autoreload 40322 124081063129088 Watching for file changes with StatReloader
+INFO 2025-02-24 21:58:15,619 basehttp 40322 124079610791488 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 21884
+INFO 2025-02-24 21:58:15,655 basehttp 40322 124079610791488 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:58:21,623 basehttp 40322 124079610791488 "POST /admin/organization/financialdocument/ HTTP/1.1" 200 15697
+INFO 2025-02-24 21:58:21,657 basehttp 40322 124079610791488 "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+INFO 2025-02-24 21:58:23,264 basehttp 40322 124079610791488 "POST /admin/organization/financialdocument/ HTTP/1.1" 302 0
+INFO 2025-02-24 21:58:23,330 basehttp 40322 124079610791488 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 16722
+INFO 2025-02-24 21:58:23,410 basehttp 40322 124079610791488 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:58:23,481 basehttp 40322 124079610791488 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+WARNING 2025-02-24 21:58:28,289 log 40322 124079512225344 Not Found: /api/v1/documents/upload/
+WARNING 2025-02-24 21:58:28,290 basehttp 40322 124079512225344 "POST /api/v1/documents/upload/ HTTP/1.1" 404 5731
+INFO 2025-02-24 21:58:36,507 basehttp 40322 124079610791488 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 16573
+INFO 2025-02-24 21:58:36,536 basehttp 40322 124079610791488 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:58:37,093 basehttp 40322 124079610791488 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 16573
+INFO 2025-02-24 21:58:37,131 basehttp 40322 124079610791488 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 21:58:37,250 basehttp 40322 124079610791488 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 16573
+INFO 2025-02-24 21:58:37,281 basehttp 40322 124079610791488 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-02-24 21:58:49,602 log 40322 124079512225344 Not Found: /api/v1/documents/upload/
+WARNING 2025-02-24 21:58:49,603 basehttp 40322 124079512225344 "POST /api/v1/documents/upload/ HTTP/1.1" 404 5731
+INFO 2025-02-24 22:00:13,461 autoreload 40322 124081063129088 /home/sukriti/insuretech/server/organization/urls.py changed, reloading.
+INFO 2025-02-24 22:00:13,991 autoreload 40677 125331024527360 Watching for file changes with StatReloader
+INFO 2025-02-24 22:00:19,158 views 40677 125329572103744 Processing upload request for user: admin
+INFO 2025-02-24 22:00:19,160 views 40677 125329572103744 Request data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 22:00:19,160 views 40677 125329572103744 Files: <MultiValueDict: {'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 22:00:19,162 views 40677 125329572103744 Organization not found: None
+WARNING 2025-02-24 22:00:19,163 log 40677 125329572103744 Not Found: /api/v1/documents/upload/
+WARNING 2025-02-24 22:00:19,163 basehttp 40677 125329572103744 "POST /api/v1/documents/upload/ HTTP/1.1" 404 41
+INFO 2025-02-24 22:01:03,691 views 40677 125329572103744 Processing upload request for user: admin
+INFO 2025-02-24 22:01:03,694 views 40677 125329572103744 Request data: <QueryDict: {'title': ['balance_sheet_2021.xlsx'], 'year': ['2021'], 'report_type': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 22:01:03,694 views 40677 125329572103744 Files: <MultiValueDict: {'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+ERROR 2025-02-24 22:01:03,698 views 40677 125329572103744 Organization not found: None
+WARNING 2025-02-24 22:01:03,700 log 40677 125329572103744 Not Found: /api/v1/documents/upload/
+WARNING 2025-02-24 22:01:03,701 basehttp 40677 125329572103744 "POST /api/v1/documents/upload/ HTTP/1.1" 404 41
+INFO 2025-02-24 22:01:09,664 autoreload 40677 125331024527360 /home/sukriti/insuretech/server/organization/views.py changed, reloading.
+INFO 2025-02-24 22:01:10,192 autoreload 40847 126959086743552 Watching for file changes with StatReloader
+INFO 2025-02-24 22:01:12,197 basehttp 40847 126957637338688 "GET /admin/organization/financialdocument/ HTTP/1.1" 200 16573
+INFO 2025-02-24 22:01:12,233 basehttp 40847 126957637338688 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-02-24 22:01:53,010 views 40847 126957542966848 === Starting File Upload ===
+INFO 2025-02-24 22:01:53,012 views 40847 126957542966848 Request Data: <QueryDict: {'year': ['2021'], 'reportType': ['BALANCE_SHEET'], 'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 22:01:53,012 views 40847 126957542966848 Files: <MultiValueDict: {'file': [<InMemoryUploadedFile: balance_sheet_2021.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)>]}>
+INFO 2025-02-24 22:01:53,012 views 40847 126957542966848 User: admin
+INFO 2025-02-24 22:01:53,012 views 40847 126957542966848 File details - Name: balance_sheet_2021.xlsx, Size: 5543
+ERROR 2025-02-24 22:01:53,026 views 40847 126957542966848 Error in file upload: 'User' object has no attribute 'organization'
+Traceback (most recent call last):
+  File "/home/sukriti/insuretech/server/organization/views.py", line 95, in post
+    organization=user.organization,
+AttributeError: 'User' object has no attribute 'organization'
+ERROR 2025-02-24 22:01:53,028 log 40847 126957542966848 Internal Server Error: /api/v1/documents/upload/
+ERROR 2025-02-24 22:01:53,029 basehttp 40847 126957542966848 "POST /api/v1/documents/upload/ HTTP/1.1" 500 90
+INFO 2025-02-24 22:02:25,855 autoreload 40847 126959086743552 /home/sukriti/insuretech/server/organization/urls.py changed, reloading.

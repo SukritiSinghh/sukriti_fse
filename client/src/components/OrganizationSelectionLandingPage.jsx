@@ -44,7 +44,7 @@ const OrganizationSelectionLandingPage = () => {
             let response;
             if (isJoining) {
                 // Join existing organization
-                response = await fetch('http://localhost:8000/api/v1/org/organizations/join_organization/', {
+                response = await fetch('http://localhost:8000/api/v1/organizations/join/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const OrganizationSelectionLandingPage = () => {
                 });
             } else {
                 // Create new organization
-                response = await fetch('http://localhost:8000/api/v1/org/organizations/', {
+                response = await fetch('http://localhost:8000/api/v1/organizations/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

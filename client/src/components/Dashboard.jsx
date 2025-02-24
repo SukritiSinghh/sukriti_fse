@@ -1,120 +1,199 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
-  DollarCircleOutlined, 
-  FileTextOutlined, 
-  LineChartOutlined, 
-  UserOutlined, 
-  LogoutOutlined 
+  Layout, 
+  Menu, 
+  Card, 
+  Upload, 
+  message, 
+  Select, 
+  Form, 
+  Input, 
+  Button,
+  Statistic,
+  Table,
+  Modal,
+  Spin,
+  Avatar,
+  Dropdown
+} from 'antd';
+import {
+  UploadOutlined,
+  DashboardOutlined,
+  BarChartOutlined,
+  SettingOutlined,
+  LogoutOutlined,
+  UserOutlined,
+  FileTextOutlined,
+  PieChartOutlined,
+  DollarOutlined,
+  ArrowUpOutlined,
+  ArrowDownOutlined
 } from '@ant-design/icons';
-import { useLocation } from 'react-router-dom';
-import { message } from 'antd';
-import { jwtDecode } from "jwt-decode"; // Named import
+import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  LineChart,
+  Line,
+  PieChart,
+  Pie,
+  Cell
+} from 'recharts';
 
-const API_BASE_URL = 'http://localhost:8000';
+const { Header, Sider, Content } = Layout;
+const { Option } = Select;
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const location = useLocation();
-  const { name, code } = location.state || {}; 
-  console.log(name, code);
-  const financialMetrics = [
-    {
-      title: 'Total Revenue',
-      value: '₹50,00,000',
-      icon: <DollarCircleOutlined className="text-green-500" />,
-      color: 'bg-green-100'
-    },
-    {
-      title: 'Total Expenses',
-      value: '₹30,00,000',
-      icon: <LineChartOutlined className="text-red-500" />,
-      color: 'bg-red-100'
-    },
-    {
-      title: 'Profit/Loss',
-      value: '₹20,00,000',
-      icon: <LineChartOutlined className="text-blue-500" />,
-      color: 'bg-blue-100'
-    },
-    {
-      title: 'Pending Claims',
-      value: '12 Claims',
-      icon: <FileTextOutlined className="text-yellow-500" />,
-      color: 'bg-yellow-100'
-    }
+  const [collapsed, setCollapsed] = useState(false);
+  const [file, setFile] = useState(null);
+  const [reportType, setReportType] = useState('BALANCE_SHEET');
+  const [year, setYear] = useState(new Date().getFullYear());
+  const [loading, setLoading] = useState(false);
+  const [financialMetrics, setFinancialMetrics] = useState({
+    totalRevenue: 0,
+    totalExpenses: 0,
+    profitLoss: 0,
+    pendingClaims: 0
+  });
+  const [yearlyReports, setYearlyReports] = useState([]);
+  const [selectedYear, setSelectedYear] = useState(null);
+  const [reportsModalVisible, setReportsModalVisible] = useState(false);
+  const [processedDocuments, setProcessedDocuments] = useState([]);
+  const [username, setUsername] = useState('');
+  const [organization, setOrganization] = useState('');
+  const [aiInsights, setAiInsights] = useState({
+    riskScore: null,
+    recommendations: [],
+    trends: {},
+    predictedMetrics: {}
+  });
+
+  // Mock data for charts
+  const revenueData = [
+    { month: 'Jan', revenue: 4000, expenses: 2400 },
+    { month: 'Feb', revenue: 3000, expenses: 1398 },
+    { month: 'Mar', revenue: 2000, expenses: 9800 },
+    { month: 'Apr', revenue: 2780, expenses: 3908 },
+    { month: 'May', revenue: 1890, expenses: 4800 },
+    { month: 'Jun', revenue: 2390, expenses: 3800 },
   ];
 
-  const [file, setFile] = useState(null);
-  const [title, setTitle] = useState('');
-  const [reportType, setReportType] = useState('OTHER');
-  const [year, setYear] = useState('');
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [processedData, setProcessedData] = useState([]);
+  const claimsData = [
+    { name: 'Processed', value: 400 },
+    { name: 'Pending', value: 300 },
+    { name: 'Rejected', value: 100 },
+  ];
 
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
+  const trendData = [
+    { month: 'Jan', claims: 65, risk: 35 },
+    { month: 'Feb', claims: 59, risk: 39 },
+    { month: 'Mar', claims: 80, risk: 42 },
+    { month: 'Apr', claims: 81, risk: 40 },
+    { month: 'May', claims: 56, risk: 36 },
+    { month: 'Jun', claims: 55, risk: 35 },
+  ];
+
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
+
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      setUsername(decodedToken.username);
+      setOrganization(location.state?.name || 'Your Organization');
+    } else {
+      navigate('/login');
+    }
+    // Fetch initial data
+    fetchFinancialMetrics();
+    fetchYearlyReports();
+    fetchProcessedDocuments();
+    fetchAIInsights();
+  }, []);
+
+  const fetchFinancialMetrics = async () => {
+    // TODO: Implement API call to fetch metrics
+    setFinancialMetrics({
+      totalRevenue: 150000,
+      totalExpenses: 80000,
+      profitLoss: 70000,
+      pendingClaims: 25
+    });
   };
 
-  const processDocuments = async () => {
+  const fetchYearlyReports = async () => {
+    // TODO: Implement API call to fetch yearly reports
+    setYearlyReports([
+      { year: 2024, count: 5 },
+      { year: 2023, count: 8 },
+      { year: 2022, count: 12 }
+    ]);
+  };
+
+  const fetchProcessedDocuments = async () => {
+    // TODO: Implement API call to fetch processed documents
+    setProcessedDocuments([
+      { id: 1, name: 'Balance Sheet 2024', type: 'BALANCE_SHEET', status: 'Processed' },
+      { id: 2, name: 'Charge Sheet Q1', type: 'CHARGESHEET', status: 'Processing' }
+    ]);
+  };
+
+  const fetchAIInsights = async () => {
     try {
-      setIsProcessing(true);
       const token = localStorage.getItem('accessToken');
-      
-      const response = await axios.post(
-        `${API_BASE_URL}/api/v1/documents/process/`,
-        {},
+      const response = await axios.get(
+        `${API_BASE_URL}/api/v1/insights/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      console.log("Processing result:", response.data);
-      
-      // Display processed data
-      if (response.data.processed_documents) {
-        const processedDocs = response.data.processed_documents;
-        setProcessedData(processedDocs);
-        message.success('Documents processed successfully');
-      } else if (response.data.error) {
-        message.error(`Processing failed: ${response.data.error}`);
-      }
+      setAiInsights(response.data);
     } catch (error) {
-      console.error("Error processing documents:", error);
-      message.error('Failed to process documents');
-    } finally {
-      setIsProcessing(false);
+      console.error('Error fetching AI insights:', error);
+      // Set mock data for now
+      setAiInsights({
+        riskScore: 75,
+        recommendations: [
+          'Consider increasing reserve allocation based on current claim trends',
+          'Review policy pricing strategy for high-risk segments',
+          'Optimize claim processing workflow to reduce pending claims'
+        ],
+        trends: {
+          claimFrequency: 'increasing',
+          averageClaimAmount: 'stable',
+          customerSatisfaction: 'improving'
+        },
+        predictedMetrics: {
+          nextMonthClaims: 85,
+          expectedRevenue: 160000,
+          projectedExpenses: 85000
+        }
+      });
     }
   };
 
   const handleFileUpload = async (file, year) => {
     try {
-      if (!name) {
-        message.error('Organization name is required');
-        return;
-      }
-
+      setLoading(true);
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('organization', name);
+      formData.append('organization', organization);
       formData.append('year', year);
       formData.append('reportType', reportType);
 
-      // Get the token from local storage
       const token = localStorage.getItem('accessToken');
-      if (token) {
-        // Decode the token to get user information
-        const decodedToken = jwtDecode(token);
-        const username = decodedToken.username; // Assuming the username is stored in the token
-        formData.append('uploaded_by', username); // Append the username
-      }
-
-      // Log the form data
-      console.log('Form data contents:');
-      for (let pair of formData.entries()) {
-        console.log(pair[0] + ':', pair[1]);
-      }
-
       const response = await axios.post(
         `${API_BASE_URL}/api/v1/documents/upload/`,
         formData,
@@ -125,334 +204,274 @@ const Dashboard = () => {
         }
       );
 
-      console.log('Response status:', response.status);
-      const responseText = await response.text();
-      console.log('Response text:', responseText);
-
-      if (!response.ok) {
-        let errorMessage;
-        try {
-          const errorData = JSON.parse(responseText);
-          errorMessage = errorData.error || errorData.message || 'Failed to upload file';
-        } catch (e) {
-          errorMessage = 'Failed to upload file: ' + responseText;
-        }
-        throw new Error(errorMessage);
+      if (response.status === 201) {
+        message.success('File uploaded successfully');
+        await processDocuments();
+        fetchProcessedDocuments();
       }
-
-      const result = JSON.parse(responseText);
-      console.log('File uploaded successfully:', result);
-      message.success('File uploaded successfully');
-
-      // After successful upload, trigger document processing
-      await processDocuments();
-
-      // Clear the file input
-      setFile(null);
     } catch (error) {
       console.error('Error uploading file:', error);
       message.error(error.message || 'Failed to upload file');
+    } finally {
+      setLoading(false);
+      setFile(null);
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    if (file) {
-      await handleFileUpload(file, year);
-    }
-  };
-
-  const YearlyReportsSection = () => {
-    const [selectedYear, setSelectedYear] = useState(null);
-
-    const yearlyReports = [
-      {
-        year: 2023,
-        reports: [
-          { 
-            name: "Annual Report 2023", 
-            date: "31 Dec 2023", 
-            type: "Balance Sheet",
-            description: "Comprehensive financial overview for the year 2023"
+  const processDocuments = async () => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      await axios.post(
+        `${API_BASE_URL}/api/v1/documents/process/`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
           },
-          { 
-            name: "Q3 Report 2023", 
-            date: "30 Sep 2023", 
-            type: "Quarterly Report",
-            description: "Third quarter financial performance analysis"
-          }
-        ]
-      },
-      {
-        year: 2022,
-        reports: [
-          { 
-            name: "Annual Report 2022", 
-            date: "31 Dec 2022", 
-            type: "Annual Financial Statement",
-            description: "Detailed financial report for the year 2022"
-          }
-        ]
-      }
-    ];
-
-    const ReportsModal = ({ year, reports, onClose }) => (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-        <div className="bg-white rounded-lg shadow-xl w-11/12 max-w-2xl max-h-[80vh] overflow-auto">
-          {/* Modal Header */}
-          <div className="flex justify-between items-center p-4 border-b">
-            <h2 className="text-2xl font-bold">{year} Reports</h2>
-            <button 
-              onClick={onClose} 
-              className="text-gray-600 hover:text-gray-900"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Modal Content */}
-          <div className="p-4">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-gray-50 border-b">
-                  <th className="p-2 text-left">Report Name</th>
-                  <th className="p-2 text-left">Date</th>
-                  <th className="p-2 text-center">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {reports.map((report, index) => (
-                  <tr key={index} className="hover:bg-gray-50 transition-colors">
-                    <td className="border-b p-2">
-                      <div className="font-medium">{report.name}</div>
-                      <div className="text-xs text-gray-500">{report.description}</div>
-                    </td>
-                    <td className="border-b p-2">{report.date}</td>
-                    <td className="border-b p-2 text-center">
-                      <button className="text-blue-500 hover:underline px-2 py-1 rounded hover:bg-blue-50">
-                        View Details
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    );
-
-    return (
-      <div className="mt-6">
-        <h2 className="text-2xl font-bold mb-4">Yearly Reports</h2>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {yearlyReports.map((yearReport) => (
-            <div 
-              key={yearReport.year} 
-              className="border rounded-lg p-4 cursor-pointer hover:shadow-md transition-shadow"
-              onClick={() => setSelectedYear(yearReport)}
-            >
-              <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold">{yearReport.year}</span>
-                <span className="text-sm text-gray-600 bg-gray-100 px-2 rounded-full">
-                  {yearReport.reports.length} Reports
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Modal for Selected Year */}
-        {selectedYear && (
-          <ReportsModal 
-            year={selectedYear.year} 
-            reports={selectedYear.reports} 
-            onClose={() => setSelectedYear(null)} 
-          />
-        )}
-      </div>
-    );
+        }
+      );
+      message.success('Documents processed successfully');
+    } catch (error) {
+      console.error('Error processing documents:', error);
+      message.error('Failed to process documents');
+    }
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    navigate('/login');
+  };
+
+  const userMenu = (
+    <Menu>
+      <Menu.Item key="profile">
+        <UserOutlined /> Profile
+      </Menu.Item>
+      <Menu.Item key="logout" onClick={handleLogout}>
+        <LogoutOutlined /> Logout
+      </Menu.Item>
+    </Menu>
+  );
+
+  const renderAIInsights = () => (
+    <div className="ai-insights-section">
+      <Card title="AI-Powered Insights" className="mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Card>
+            <Statistic
+              title="Risk Score"
+              value={aiInsights.riskScore}
+              suffix="/100"
+              valueStyle={{ color: aiInsights.riskScore > 70 ? '#3f8600' : '#cf1322' }}
+            />
+          </Card>
+          <Card>
+            <h4 className="text-lg font-semibold mb-2">Key Recommendations</h4>
+            <ul className="list-disc pl-4">
+              {aiInsights.recommendations.map((rec, index) => (
+                <li key={index} className="text-sm text-gray-600">{rec}</li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </Card>
+      
+      <Card title="Predictive Analytics" className="mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Statistic
+            title="Predicted Claims Next Month"
+            value={aiInsights.predictedMetrics.nextMonthClaims}
+            prefix={<BarChartOutlined />}
+          />
+          <Statistic
+            title="Expected Revenue"
+            value={aiInsights.predictedMetrics.expectedRevenue}
+            prefix="$"
+          />
+          <Statistic
+            title="Projected Expenses"
+            value={aiInsights.predictedMetrics.projectedExpenses}
+            prefix="$"
+          />
+        </div>
+      </Card>
+
+      <Card title="Trend Analysis">
+        <LineChart width={800} height={300} data={trendData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="claims" stroke="#8884d8" name="Claims" />
+          <Line type="monotone" dataKey="risk" stroke="#82ca9d" name="Risk Score" />
+        </LineChart>
+      </Card>
+    </div>
+  );
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Navigation Bar */}
-      <nav className="bg-white shadow-md p-4 flex justify-between items-center">
-        <div className="flex items-center">
-          <img src="/logo.svg" alt="InsureTech Logo" className="h-10 mr-4" />
-          <nav className="space-x-4">
-            <a href="#" className="text-gray-700 hover:text-blue-600">Dashboard</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600">Upload Reports</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600">Analytics</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600">Settings</a>
-          </nav>
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
+        <div className="logo p-4">
+          <h2 className="text-white text-xl font-bold">InsureTech</h2>
         </div>
-        <div className="flex items-center space-x-4">
-          <UserOutlined className="text-xl" />
-          <span>John Doe</span>
-          <LogoutOutlined className="text-red-500 cursor-pointer" />
-        </div>
-      </nav>
-
-      {/* Financial Metrics */}
-      <div className="container mx-auto p-6">
-        <div className="grid grid-cols-4 gap-4 mb-6">
-          {financialMetrics.map((metric, index) => (
-            <div 
-              key={index} 
-              className={`p-4 rounded-lg shadow-md ${metric.color} flex items-center`}
-            >
-              <div className="mr-4 text-3xl">{metric.icon}</div>
-              <div>
-                <h3 className="text-sm text-gray-600">{metric.title}</h3>
-                <p className="text-xl font-bold">{metric.value}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* File Upload Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-            <h2 className="text-2xl font-semibold mb-4">Upload Financial Document</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Document Type</label>
-                <select
-                  value={reportType}
-                  onChange={(e) => setReportType(e.target.value)}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                >
-                  <option value="OTHER">Select Type</option>
-                  <option value="BALANCE_SHEET">Balance Sheet</option>
-                  <option value="CHARGESHEET">Charge Sheet</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Year</label>
-                <input
-                  type="number"
-                  value={year}
-                  onChange={(e) => setYear(e.target.value)}
-                  placeholder="Enter year"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">File</label>
-                <input
-                  type="file"
-                  onChange={handleFileChange}
-                  className="mt-1 block w-full"
-                  accept=".xlsx,.xls,.csv"
-                />
-              </div>
-              <div className="flex justify-between items-center">
-                <button
-                  type="submit"
-                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  disabled={!file || isProcessing}
-                >
-                  {isProcessing ? 'Processing...' : 'Upload'}
-                </button>
-                
-                <button
-                  type="button"
-                  onClick={processDocuments}
-                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                  disabled={isProcessing}
-                >
-                  {isProcessing ? 'Processing Documents...' : 'Process Pending Documents'}
-                </button>
-              </div>
-            </form>
+        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          <Menu.Item key="1" icon={<DashboardOutlined />}>
+            Dashboard
+          </Menu.Item>
+          <Menu.Item key="2" icon={<UploadOutlined />}>
+            Upload Reports
+          </Menu.Item>
+          <Menu.Item key="3" icon={<BarChartOutlined />}>
+            Analytics
+          </Menu.Item>
+          <Menu.Item key="4" icon={<SettingOutlined />}>
+            Settings
+          </Menu.Item>
+        </Menu>
+      </Sider>
+      <Layout>
+        <Header className="bg-white p-0 flex justify-between items-center">
+          <div className="px-4">
+            <h1 className="text-xl">{organization}</h1>
           </div>
-
-          <YearlyReportsSection />
-
-          {/* Display Processed Data */}
-          {processedData.length > 0 && (
-            <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-              <h2 className="text-2xl font-semibold mb-4">Processed Documents</h2>
-              {processedData.map((doc, index) => (
-                <div key={doc.document_id} className="mb-4 p-4 border rounded">
-                  <h3 className="text-xl font-medium">{doc.title}</h3>
-                  <p className="text-gray-600">Type: {doc.report_type}</p>
-                  
-                  {doc.processed_data && (
-                    <div className="mt-2">
-                      {doc.processed_data.type === 'balance_sheet' && (
-                        <div className="grid grid-cols-2 gap-4">
-                          {Object.entries(doc.processed_data.data).map(([key, value]) => (
-                            <div key={key} className="p-2 bg-gray-50 rounded">
-                              <span className="font-medium">{key.replace(/_/g, ' ').toUpperCase()}: </span>
-                              {key === 'processed_at' ? new Date(value).toLocaleString() : value}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      
-                      {doc.processed_data.type === 'chargesheet' && (
-                        <div className="overflow-x-auto">
-                          <table className="min-w-full mt-2">
-                            <thead>
-                              <tr className="bg-gray-50">
-                                <th className="px-4 py-2">Date</th>
-                                <th className="px-4 py-2">Charges</th>
-                                <th className="px-4 py-2">Amount</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {doc.processed_data.data.map((charge, idx) => (
-                                <tr key={idx} className="border-t">
-                                  <td className="px-4 py-2">{new Date(charge.date).toLocaleDateString()}</td>
-                                  <td className="px-4 py-2">{charge.charges}</td>
-                                  <td className="px-4 py-2">{charge.amount}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                  
-                  {doc.error && (
-                    <div className="text-red-600 mt-2">
-                      Error: {doc.error}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Charts & Insights */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4">Financial Trends</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="border p-4 rounded">
-                <h3 className="text-lg mb-2">Revenue & Expense Comparison</h3>
-                {/* Placeholder for chart */}
-                <div className="h-64 bg-gray-200 flex items-center justify-center">
-                  Chart Placeholder
-                </div>
-              </div>
-              <div className="border p-4 rounded">
-                <h3 className="text-lg mb-2">Claims Processing</h3>
-                {/* Placeholder for chart */}
-                <div className="h-64 bg-gray-200 flex items-center justify-center">
-                  Chart Placeholder
-                </div>
-              </div>
-            </div>
+          <div className="px-4">
+            <Dropdown overlay={userMenu}>
+              <Avatar icon={<UserOutlined />} /> 
+            </Dropdown>
           </div>
-        </div>
-      </div>
-    </div>
+        </Header>
+        <Content className="m-4">
+          <div className="site-layout-background p-6">
+            {/* Financial Metrics */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+              <Card>
+                <Statistic
+                  title="Total Revenue"
+                  value={financialMetrics.totalRevenue}
+                  prefix={<DollarOutlined />}
+                  valueStyle={{ color: '#3f8600' }}
+                />
+              </Card>
+              <Card>
+                <Statistic
+                  title="Total Expenses"
+                  value={financialMetrics.totalExpenses}
+                  prefix={<DollarOutlined />}
+                  valueStyle={{ color: '#cf1322' }}
+                />
+              </Card>
+              <Card>
+                <Statistic
+                  title="Profit/Loss"
+                  value={financialMetrics.profitLoss}
+                  prefix={financialMetrics.profitLoss >= 0 ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
+                  valueStyle={{ color: financialMetrics.profitLoss >= 0 ? '#3f8600' : '#cf1322' }}
+                />
+              </Card>
+              <Card>
+                <Statistic
+                  title="Pending Claims"
+                  value={financialMetrics.pendingClaims}
+                  valueStyle={{ color: '#1890ff' }}
+                />
+              </Card>
+            </div>
+
+            {/* File Upload Section */}
+            <Card title="Upload Financial Documents" className="mb-8">
+              <Form layout="vertical">
+                <Form.Item label="Document Type">
+                  <Select value={reportType} onChange={setReportType}>
+                    <Option value="BALANCE_SHEET">Balance Sheet</Option>
+                    <Option value="CHARGESHEET">Charge Sheet</Option>
+                  </Select>
+                </Form.Item>
+                <Form.Item label="Year">
+                  <Input type="number" value={year} onChange={e => setYear(e.target.value)} />
+                </Form.Item>
+                <Form.Item>
+                  <Upload
+                    beforeUpload={(file) => {
+                      setFile(file);
+                      return false;
+                    }}
+                    fileList={file ? [file] : []}
+                  >
+                    <Button icon={<UploadOutlined />}>Select File</Button>
+                  </Upload>
+                </Form.Item>
+                <Button 
+                  type="primary" 
+                  onClick={() => handleFileUpload(file, year)}
+                  loading={loading}
+                  disabled={!file}
+                >
+                  Upload and Process
+                </Button>
+              </Form>
+            </Card>
+
+            {/* Charts Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <Card title="Revenue vs Expenses">
+                <BarChart width={500} height={300} data={revenueData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="month" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="revenue" fill="#8884d8" />
+                  <Bar dataKey="expenses" fill="#82ca9d" />
+                </BarChart>
+              </Card>
+              <Card title="Claims Processing">
+                <PieChart width={400} height={300}>
+                  <Pie
+                    data={claimsData}
+                    cx={200}
+                    cy={150}
+                    labelLine={false}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {claimsData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </Card>
+            </div>
+
+            {/* Processed Documents */}
+            <Card title="Processed Documents">
+              <Table
+                dataSource={processedDocuments}
+                columns={[
+                  { title: 'Name', dataIndex: 'name', key: 'name' },
+                  { title: 'Type', dataIndex: 'type', key: 'type' },
+                  { title: 'Status', dataIndex: 'status', key: 'status' },
+                  {
+                    title: 'Action',
+                    key: 'action',
+                    render: (_, record) => (
+                      <Button type="link">View Details</Button>
+                    ),
+                  },
+                ]}
+              />
+            </Card>
+
+            {/* AI Insights */}
+            {renderAIInsights()}
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
   );
 };
 
