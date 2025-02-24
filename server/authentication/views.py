@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions, status, serializers
-from rest_framework.decorators import action
+from rest_framework.decorators import action, permission_classes, authentication_classes
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 import logging
 
 from .models import User
@@ -49,12 +51,12 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.AllowAny]  # Default to allow any access
+    permission_classes = [IsAuthenticated]
     
     def get_permissions(self):
-        if self.action in ['list', 'retrieve', 'update', 'partial_update', 'destroy', 'me']:
-            return [permissions.IsAuthenticated()]
-        return []
+        if self.action == 'register':
+            return [permissions.AllowAny()]
+        return [permissions.IsAuthenticated()]
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
@@ -86,14 +88,13 @@ class UserViewSet(viewsets.ModelViewSet):
             access_token = str(refresh.access_token)
             refresh_token = str(refresh)
             
+            # Get the user data with organization
+            user_data = UserSerializer(user).data
+            
             # Create response with tokens in cookies
             response = Response({
                 'message': 'User created successfully',
-                'user': {
-                    'id': user.id,
-                    'username': user.username,
-                    'email': user.email,
-                }
+                'user': user_data
             }, status=status.HTTP_201_CREATED)
             
             # Set JWT cookies
@@ -116,8 +117,10 @@ class UserViewSet(viewsets.ModelViewSet):
             
             return response
             
-        except Exception as e:
+        except serializers.ValidationError as e:
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     @action(detail=False, methods=['POST'])
     def logout(self, request):
@@ -138,7 +141,25 @@ class UserViewSet(viewsets.ModelViewSet):
         except Exception as e:
             return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=False, methods=['GET'])
+    @action(
+        detail=False, 
+        methods=['GET'],
+        permission_classes=[IsAuthenticated],
+        authentication_classes=[JWTAuthentication]
+    )
     def me(self, request):
-        serializer = self.get_serializer(request.user)
-        return Response(serializer.data)
+        try:
+            # Get user directly from the database using the authenticated user's username
+            user = User.objects.select_related('organization', 'role').get(username=request.user.username)
+            serializer = UserSerializer(user)
+            return Response(serializer.data)
+        except User.DoesNotExist:
+            return Response(
+                {"error": "User not found"}, 
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            return Response(
+                {"error": str(e)}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )

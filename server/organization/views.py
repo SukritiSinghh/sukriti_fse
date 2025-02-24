@@ -461,7 +461,7 @@ class FinancialDataView(APIView):
                 date_range = pd.date_range(
                     start=f"{min_year}-01-01",
                     periods=len(df),
-                    freq='YE'  # Using YE (Year End) instead of deprecated Y
+                    freq='Y'
                 )
                 
                 # Create time series with proper index

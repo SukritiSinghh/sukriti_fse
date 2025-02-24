@@ -47,11 +47,17 @@ const LoginPage = ({ setIsAuthenticated }) => {
             if (userResponse.ok) {
                 const userData = await userResponse.json();
                 setIsAuthenticated(true);
+                console.log('User Data:', userData);
 
                 // Check if user has an organization
                 if (userData.organization) {
-                    // Redirect to the dashboard
-                    navigate('/dashboard'); // Adjust the path as needed
+                    // Redirect to the dashboard with organization details
+                    navigate('/dashboard', { 
+                        state: { 
+                            name: userData.organization.name,
+                            code: userData.organization.code 
+                        } 
+                    });
                 } else {
                     navigate('/organization-selection');
                 }
