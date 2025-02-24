@@ -1,9 +1,8 @@
 from django.db import models
-from authentication.models import Organization
 
 class ChargeSheet(models.Model):
     organization = models.ForeignKey(
-        Organization, 
+        'authentication.Organization',
         on_delete=models.CASCADE,
         related_name='charge_sheets'
     )
@@ -27,7 +26,7 @@ class ChargeSheet(models.Model):
 
 class BalanceSheet(models.Model):
     organization = models.ForeignKey(
-        Organization, 
+        'authentication.Organization',
         on_delete=models.CASCADE,
         related_name='balance_sheets'
     )
@@ -51,7 +50,7 @@ class BalanceSheet(models.Model):
 
 class FinancialInsight(models.Model):
     organization = models.ForeignKey(
-        Organization, 
+        'authentication.Organization',
         on_delete=models.CASCADE,
         related_name='financial_insights'
     )

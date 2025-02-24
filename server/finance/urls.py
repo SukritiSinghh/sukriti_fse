@@ -1,13 +1,18 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import IncomeViewSet, ExpenseViewSet, FinancialGoalViewSet
+from .views import (
+    IncomeViewSet, ExpenseViewSet, FinancialGoalViewSet, 
+    FinancialReportViewSet, OrganizationViewSet
+)
 
 # Create a router and register viewsets
 router = DefaultRouter()
+router.register(r'organizations', OrganizationViewSet, basename='organization')
 router.register(r'income', IncomeViewSet, basename='income')
 router.register(r'expenses', ExpenseViewSet, basename='expense')
 router.register(r'goals', FinancialGoalViewSet, basename='financial-goal')
+router.register(r'reports', FinancialReportViewSet, basename='financial-report')
 
 urlpatterns = [
     # Include router URLs

@@ -2,17 +2,70 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const SignupPage = () => {
-    const [fullName, setFullName] = useState('');
+const SignupPage = ({ setIsAuthenticated }) => {
+    const [username, setusername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSignup = (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
-        // Add signup logic here
-        navigate('/organization-selection');
+        const payload = {
+            "username": username,
+            "email": email,
+            "password": password,
+            "confirm_password": confirmPassword,
+            // "role": null,
+        };
+        console.log("Payload:", JSON.stringify(payload));
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/v1/auth/register/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Signup successful, received data:', data);
+                
+                // Store tokens and user data
+                localStorage.setItem('accessToken', data.access);
+                localStorage.setItem('refreshToken', data.refresh);
+                localStorage.setItem('user', JSON.stringify(data.user));
+                
+                // Set authenticated state
+                setIsAuthenticated(true);
+                
+                // Navigate to organization setup
+                navigate('/organization-selection');
+            } else {
+                const errorData = await response.json();
+                console.error('Signup failed:', errorData);
+                
+                // Handle validation errors
+                let errorMessage = '';
+                if (typeof errorData === 'object') {
+                    // Process each field's errors
+                    Object.entries(errorData).forEach(([field, errors]) => {
+                        if (Array.isArray(errors)) {
+                            errorMessage += `${field}: ${errors.join(', ')}\n`;
+                        } else if (typeof errors === 'string') {
+                            errorMessage += `${field}: ${errors}\n`;
+                        }
+                    });
+                } else {
+                    errorMessage = 'Registration failed. Please try again.';
+                }
+                alert(errorMessage.trim());
+            }
+        } catch (error) {
+            console.error('Network error:', error);
+            alert('Network error. Please check your connection and try again.');
+        }
     };
 
     return (
@@ -22,8 +75,8 @@ const SignupPage = () => {
                 <form onSubmit={handleSignup} className="space-y-4">
                     <input
                         type="text"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
+                        value={username}
+                        onChange={(e) => setusername(e.target.value)}
                         placeholder="Full Name"
                         required
                         className="w-full p-2 border border-gray-300 rounded"
