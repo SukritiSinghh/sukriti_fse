@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions, status, serializers
-from rest_framework.decorators import action, permission_classes, authentication_classes
+from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -49,9 +49,10 @@ class CustomTokenObtainPairView(TokenObtainPairView):
         return response
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
     
     def get_permissions(self):
         if self.action == 'register':
@@ -125,27 +126,26 @@ class UserViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['POST'])
     def logout(self, request):
         try:
+            # Get the refresh token from cookies
             refresh_token = request.COOKIES.get('refresh_token')
+            
             if refresh_token:
                 # Blacklist the refresh token
                 token = RefreshToken(refresh_token)
                 token.blacklist()
                 
-                # Create response and delete cookies
-                response = Response({"detail": "Successfully logged out."})
-                response.delete_cookie('access_token')
-                response.delete_cookie('refresh_token')
-                return response
-            return Response({"detail": "No refresh token found."}, status=status.HTTP_400_BAD_REQUEST)
+            response = Response({"detail": "Successfully logged out."})
+            # Delete the cookies
+            response.delete_cookie('access_token')
+            response.delete_cookie('refresh_token')
             
+            return response
         except Exception as e:
-            return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"detail": "Error during logout."}, status=status.HTTP_400_BAD_REQUEST)
 
     @action(
         detail=False, 
-        methods=['GET'],
-        permission_classes=[IsAuthenticated],
-        authentication_classes=[JWTAuthentication]
+        methods=['GET']
     )
     def me(self, request):
         try:
