@@ -15,11 +15,11 @@ router.register(r'goals', FinancialGoalViewSet, basename='financial-goal')
 router.register(r'reports', FinancialReportViewSet, basename='financial-report')
 
 urlpatterns = [
-    # Include router URLs
-    path('', include(router.urls)),
-    
-    # Additional custom routes can be added here
+    # Additional custom routes first
     path('income/summary/', IncomeViewSet.as_view({'get': 'summary'}), name='income-summary'),
     path('expenses/summary/', ExpenseViewSet.as_view({'get': 'summary'}), name='expense-summary'),
     path('goals/progress/', FinancialGoalViewSet.as_view({'get': 'progress_summary'}), name='goals-progress'),
+    
+    # Include router URLs
+    path('', include(router.urls)),
 ]

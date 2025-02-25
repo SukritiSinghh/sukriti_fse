@@ -76,52 +76,23 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['POST'])
     def register(self, request):
-        try:
-            serializer = UserRegistrationSerializer(data=request.data)
-            if not serializer.is_valid():
-                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            
-            # Create user
-            user = serializer.save()
-            
-            # Generate tokens
-            refresh = RefreshToken.for_user(user)
-            access_token = str(refresh.access_token)
-            refresh_token = str(refresh)
-            
-            # Get the user data with organization
-            user_data = UserSerializer(user).data
-            
-            # Create response with tokens in cookies
-            response = Response({
-                'message': 'User created successfully',
-                'user': user_data
-            }, status=status.HTTP_201_CREATED)
-            
-            # Set JWT cookies
-            response.set_cookie(
-                'access_token',
-                access_token,
-                max_age=3600,  # 1 hour
-                httponly=True,
-                samesite='Lax',
-                secure=False  # Set to True in production with HTTPS
-            )
-            response.set_cookie(
-                'refresh_token',
-                refresh_token,
-                max_age=86400,  # 1 day
-                httponly=True,
-                samesite='Lax',
-                secure=False  # Set to True in production with HTTPS
-            )
-            
-            return response
-            
-        except serializers.ValidationError as e:
-            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        serializer = UserRegistrationSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        # Create user
+        user = serializer.save()
+        
+        # Get the user data with organization
+        user_data = UserSerializer(user).data
+        
+        # Create response with user data
+        response = Response({
+            'message': 'User created successfully',
+            'user': user_data
+        }, status=status.HTTP_201_CREATED)
+        
+        return response
 
     @action(detail=False, methods=['POST'])
     def logout(self, request):

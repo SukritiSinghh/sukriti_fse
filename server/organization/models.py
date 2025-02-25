@@ -1,30 +1,16 @@
 from django.db import models
 from authentication.models import Organization
 
-# Create your models here.
-
 class FinancialDocument(models.Model):
-    class Status:
-        PENDING = 'PENDING'
-        PROCESSED = 'PROCESSED'
-        FAILED = 'FAILED'
+    class Status(models.TextChoices):
+        PENDING = 'PENDING', 'Pending'
+        PROCESSED = 'PROCESSED', 'Processed'
+        FAILED = 'FAILED', 'Failed'
 
-        CHOICES = [
-            (PENDING, 'Pending'),
-            (PROCESSED, 'Processed'),
-            (FAILED, 'Failed')
-        ]
-
-    class ReportType:
-        OTHER = 'OTHER'
-        BALANCE_SHEET = 'BALANCE_SHEET'
-        CHARGESHEET = 'CHARGESHEET'
-
-        CHOICES = [
-            (OTHER, 'Other'),
-            (BALANCE_SHEET, 'Balance Sheet'),
-            (CHARGESHEET, 'Charge Sheet')
-        ]
+    class ReportType(models.TextChoices):
+        OTHER = 'OTHER', 'Other'
+        BALANCE_SHEET = 'BALANCE_SHEET', 'Balance Sheet'
+        CHARGESHEET = 'CHARGESHEET', 'Charge Sheet'
 
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     uploaded_by = models.CharField(max_length=255)  # Store username as a string
@@ -32,12 +18,20 @@ class FinancialDocument(models.Model):
     file_name = models.CharField(max_length=255, default='')  # Field to store the name of the uploaded file
     title = models.CharField(max_length=255, default='Untitled Document')  # Title of the document
     uploaded_at = models.DateTimeField(auto_now_add=True)
-    year = models.PositiveIntegerField(default=2023)  # Set a default year
-    report_type = models.CharField(max_length=50, choices=ReportType.CHOICES, default=ReportType.OTHER)
-    status = models.CharField(max_length=20, choices=Status.CHOICES, default=Status.PENDING)
+    year = models.PositiveIntegerField(default=2024)  # Set a default year
+    report_type = models.CharField(
+        max_length=20,
+        choices=ReportType.choices,
+        default=ReportType.OTHER
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.PENDING
+    )
 
     def __str__(self):
-        return f"{self.organization.name} - {self.title} ({self.uploaded_at})"
+        return f"{self.title} ({self.file_name})"
 
     class Meta:
         ordering = ['-uploaded_at']

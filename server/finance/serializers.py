@@ -20,23 +20,20 @@ class ExpenseSerializer(serializers.ModelSerializer):
         read_only_fields = ['user', 'date']
 
 class FinancialGoalSerializer(serializers.ModelSerializer):
-    """
-    Serializer for Financial Goals
-    """
+    """Serializer for Financial Goals"""
     progress_percentage = serializers.SerializerMethodField()
 
     class Meta:
         model = FinancialGoal
         fields = [
             'id', 
-            'user', 
             'name', 
             'target_amount', 
             'current_amount', 
             'deadline', 
             'progress_percentage'
         ]
-        read_only_fields = ['user', 'progress_percentage']
+        read_only_fields = ['progress_percentage']
 
     def get_progress_percentage(self, obj):
         return obj.progress_percentage()

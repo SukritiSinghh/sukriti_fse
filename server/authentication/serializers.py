@@ -72,51 +72,45 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['username', 'email', 'organization', 'role', 'staff_status']
 
     def get_organization(self, obj):
-        if hasattr(obj, 'organization_id') and obj.organization_id:
-            try:
-                org = obj.organization
-                if org:
-                    # Format: "3 (3)" where first is ID and second is name
-                    return f"{org.id} ({org.name})"
-            except Organization.DoesNotExist:
-                pass
+        if hasattr(obj, 'organization') and obj.organization:
+            return {
+                'id': obj.organization.id,
+                'name': obj.organization.name,
+                'code': obj.organization.code
+            }
         return None
 
     def get_role(self, obj):
-        if hasattr(obj, 'role_id') and obj.role_id:
-            try:
-                role = obj.role
-                if role:
-                    # Return "Administrator" for admin role
-                    return "Administrator" if role.name == "Admin" else role.get_name_display()
-            except Role.DoesNotExist:
-                pass
+        if hasattr(obj, 'role') and obj.role:
+            return obj.role.name
         return None
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
     confirm_password = serializers.CharField(write_only=True, required=True, style={'input_type': 'password'})
-    organization = OrganizationSerializer(read_only=True)  # Add organization to response
+    organization = serializers.PrimaryKeyRelatedField(queryset=Organization.objects.all(), required=True)
+    role = serializers.PrimaryKeyRelatedField(queryset=Role.objects.all(), required=True)
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'confirm_password', 'organization')
+        fields = ('username', 'email', 'password', 'confirm_password', 'first_name', 'last_name', 'organization', 'role')
         extra_kwargs = {
             'username': {'required': True},
-            'email': {'required': True}
+            'email': {'required': True},
+            'first_name': {'required': False},
+            'last_name': {'required': False}
         }
 
     def validate(self, data):
-        # Check if passwords match
         if data['password'] != data['confirm_password']:
-            raise serializers.ValidationError("Passwords do not match")
+            raise serializers.ValidationError({"password": "Passwords do not match."})
         
-        # Validate username
+        # Check if username exists
         username = data.get('username')
         if User.objects.filter(username=username).exists():
             raise serializers.ValidationError({'username': 'Username already exists'})
         
-        # Validate email
+        # Check if email exists
         email = data.get('email')
         if User.objects.filter(email=email).exists():
             raise serializers.ValidationError({'email': 'Email already exists'})
@@ -124,17 +118,14 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        # Remove confirm_password from the data
-        validated_data.pop('confirm_password', None)
-        password = validated_data.pop('password', None)
-        
-        # Create user instance
+        validated_data.pop('confirm_password')
+        password = validated_data.pop('password')
         user = User.objects.create_user(
             username=validated_data['username'],
             email=validated_data['email'],
-            password=password
+            password=password,
+            **{k: v for k, v in validated_data.items() if k not in ['username', 'email']}
         )
-        
         return user
 
 class JoinOrganizationSerializer(serializers.Serializer):

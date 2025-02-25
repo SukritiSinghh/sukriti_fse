@@ -63,8 +63,8 @@ class FileUploadView(APIView):
             upload_path = os.path.join('documents', org_name, str(request.data.get('year')))
             
             # Validate report type
-            report_type = request.data.get('reportType', 'OTHER')
-            if report_type not in dict(FinancialDocument.ReportType.CHOICES):
+            report_type = request.data.get('reportType', FinancialDocument.ReportType.OTHER)
+            if report_type not in dict(FinancialDocument.ReportType.choices):
                 logger.error(f"Invalid report type: {report_type}")
                 return Response({"error": f"Invalid report type: {report_type}"}, 
                              status=status.HTTP_400_BAD_REQUEST)

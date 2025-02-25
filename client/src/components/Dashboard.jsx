@@ -128,10 +128,40 @@ const Dashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
     if (token) {
-      const decodedToken = jwtDecode(token);
-      setUsername(decodedToken.username);
-      setOrganization(location.state?.name || 'Your Organization');
-      fetchAllFinancialData();
+      try {
+        const decodedToken = jwtDecode(token);
+        setUsername(decodedToken.username);
+        
+        // Fetch user data to get fresh organization info
+        const fetchUserData = async () => {
+          try {
+            const response = await axios.get(`${API_BASE_URL}/auth/me/`, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            });
+            
+            const userData = response.data;
+            if (!userData.organization) {
+              message.error('No organization associated with your account');
+              navigate('/login');
+              return;
+            }
+            
+            setOrganization(userData.organization.name);
+            fetchAllFinancialData();
+          } catch (error) {
+            console.error('Error fetching user data:', error);
+            message.error('Failed to fetch user data');
+            navigate('/login');
+          }
+        };
+        
+        fetchUserData();
+      } catch (error) {
+        console.error('Error decoding token:', error);
+        navigate('/login');
+      }
     } else {
       navigate('/login');
     }
@@ -150,7 +180,7 @@ const Dashboard = () => {
       }
 
       const response = await axios.get(
-        `${API_BASE_URL}/api/v1/financial-data/`, // updated endpoint
+        `${API_BASE_URL}/financial-data/`, 
         {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -209,34 +239,105 @@ const Dashboard = () => {
     }
   };
 
+  // File upload configuration
+  const uploadProps = {
+    beforeUpload: (file) => {
+      // Check file type
+      const isValidType = ['application/pdf', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel'].includes(file.type);
+      if (!isValidType) {
+        message.error('You can only upload PDF or Excel files!');
+        return Upload.LIST_IGNORE;
+      }
+
+      // Check file size (10MB limit)
+      const isLt10M = file.size / 1024 / 1024 < 10;
+      if (!isLt10M) {
+        message.error('File must be smaller than 10MB!');
+        return Upload.LIST_IGNORE;
+      }
+
+      setFile(file);
+      return false; // Prevent automatic upload
+    },
+    fileList: file ? [file] : [],
+    onRemove: () => {
+      setFile(null);
+    },
+  };
+
   const handleFileUpload = async (file) => {
     try {
       setLoading(true);
+      const token = localStorage.getItem('accessToken');
+      
+      // Get fresh organization data
+      const userResponse = await axios.get(`${API_BASE_URL}/auth/me/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      
+      const userData = userResponse.data;
+      if (!userData.organization) {
+        message.error('No organization associated with your account');
+        return;
+      }
+
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('organization', organization);
+      formData.append('organization', userData.organization.name);
       formData.append('year', year);
       formData.append('reportType', reportType);
 
-      const token = localStorage.getItem('accessToken');
+      console.log('Uploading file with data:', {
+        organization: userData.organization.name,
+        year: year,
+        reportType: reportType,
+        fileName: file.name
+      });
+
       const response = await axios.post(
         `${API_BASE_URL}/documents/upload/`,
         formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',  
           },
         }
       );
 
       if (response.status === 201) {
         message.success('File uploaded successfully');
-        // Refresh financial data after upload
+        
+        // Trigger document processing
+        const processResponse = await axios.post(
+          `${API_BASE_URL}/documents/process/`,
+          {},
+          {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (processResponse.status === 200) {
+          message.success('Document processed successfully');
+        } else {
+          message.warning('Document uploaded but processing may take some time');
+        }
+
+        // Refresh financial data after upload and processing
         fetchAllFinancialData();
       }
     } catch (error) {
       console.error('Error uploading file:', error);
-      message.error(error.message || 'Failed to upload file');
+      if (error.response) {
+        console.error('Error response:', error.response.data);
+        message.error(error.response.data.error || 'Failed to upload file');
+      } else {
+        message.error('Failed to upload file. Please try again.');
+      }
     } finally {
       setLoading(false);
       setFile(null);
@@ -459,13 +560,7 @@ const Dashboard = () => {
                   <Form.Item label="Year">
                     <Input type="number" value={year} onChange={e => setYear(e.target.value)} />
                   </Form.Item>
-                  <Upload
-                    beforeUpload={(file) => {
-                      setFile(file);
-                      return false;
-                    }}
-                    fileList={file ? [file] : []}
-                  >
+                  <Upload {...uploadProps}>
                     <Button icon={<UploadOutlined />}>Select File</Button>
                   </Upload>
                   {file && (

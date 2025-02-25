@@ -13,4 +13,5 @@ urlpatterns = [
     # API endpoints
     path('api/v1/', include('organization.urls')),
     path('api/v1/auth/', include('authentication.urls')),
+    path('api/v1/finance/', include('finance.urls')),  # Added finance URLs
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

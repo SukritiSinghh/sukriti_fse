@@ -48,7 +48,8 @@ const LoginPage = ({ setIsAuthenticated }) => {
                 const userData = await userResponse.json();
                 setIsAuthenticated(true);
                 console.log('User Data:', userData);
-
+                console.log('userData.organization.name:', userData.organization.name)
+                console.log('userData.organization.code:', userData.organization.code)
                 // Check if user has an organization
                 if (userData.organization) {
                     // Redirect to the dashboard with organization details

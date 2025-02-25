@@ -33,10 +33,19 @@ class Role(models.Model):
         ('Finance', 'Finance Professional'),
     ]
     
-    name = models.CharField(max_length=50, choices=ROLE_CHOICES, unique=True)
+    name = models.CharField(max_length=50, choices=ROLE_CHOICES)
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.name not in dict(self.ROLE_CHOICES):
+            raise ValidationError({'name': 'Invalid role choice'})
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.get_name_display()
+        return dict(self.ROLE_CHOICES).get(self.name, self.name)
 
     class Meta:
         verbose_name = 'Role'
@@ -63,11 +72,6 @@ class User(AbstractUser):
         help_text='Specific permissions for this user.',
         verbose_name='user permissions',
     )
-
-    def save(self, *args, **kwargs):
-        if self._state.adding and self.password:
-            self.password = make_password(self.password)
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.username

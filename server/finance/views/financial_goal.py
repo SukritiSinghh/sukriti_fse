@@ -9,7 +9,7 @@ class FinancialGoalViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return FinancialGoal.objects.filter(user=self.request.user)
+        return FinancialGoal.objects.filter(organization=self.request.user.organization)
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save(organization=self.request.user.organization)
