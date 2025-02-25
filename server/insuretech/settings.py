@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 from datetime import timedelta
 
@@ -169,11 +170,14 @@ WSGI_APPLICATION = 'insuretech.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'insuretech',
+        'NAME': 'insuretech_test' if 'test' in sys.argv else 'insuretech',
         'USER': 'insuretech_user',
         'PASSWORD': 'insuretech123',
         'HOST': 'localhost',
         'PORT': '5432',
+        'TEST': {
+            'NAME': 'test_insuretech',
+        },
     }
 }
 
